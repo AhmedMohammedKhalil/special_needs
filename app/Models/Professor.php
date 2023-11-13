@@ -11,7 +11,7 @@ class Professor extends Authenticatable
     protected $guard = 'professor';
 
     protected $fillable = [
-        'name', 'email','phone','gender','password','image',
+        'name', 'email','phone','gender','password','image','college_id'
     ];
 
     /**
@@ -23,5 +23,13 @@ class Professor extends Authenticatable
         'password',
     ];
 
+    public function college()
+    {
+        return $this->belongsTo(College::class);
+    }
+    public function meetings()
+    {
+        return $this->hasMany(Interview::class);
+    }
 
 }

@@ -11,6 +11,15 @@ class College extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'location','details','image',
+        'name', 'location','description','image',
     ];
+
+    public function professors()
+    {
+        return $this->hasMany(Professor::class);
+    }
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
+    }
 }
