@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::middleware(['guest:admin', 'guest:company', 'guest:user'])->group(function () {
+Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/colleges', 'HomeController@colleges')->name('colleges');
+Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
+Route::middleware(['guest:admin', 'guest:professor', 'guest:student'])->group(function () {
     Route::get('/admin/login', 'AdminController@showLoginForm')->name('admin.login');
-    Route::get('/company/login', 'CompanyController@showLoginForm')->name('company.login');
-    Route::get('/user/login', 'UserController@showLoginForm')->name('user.login');
-    Route::get('/user/register', 'UserController@showRegisterForm')->name('user.register');
+    Route::get('/professor/login', 'ProfessorController@showLoginForm')->name('professor.login');
+    Route::get('/student/login_register', 'StudentController@showLoginRegister')->name('student.login_register');
 });
 
 
@@ -27,22 +29,34 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
     Route::get('/profile', 'AdminController@profile')->name('profile');
     Route::get('/settings', 'AdminController@settings')->name('settings');
-    Route::get('/changePassword', 'AdminController@changePassword')->name('changePassword');
+    // Route::get('/changePassword', 'AdminController@changePassword')->name('changePassword');
     Route::get('/logout', 'AdminController@logout')->name('logout');
+    Route::prefix('/college')->name('college.')->group(function () {
+        Route::get('/index', 'CollegeController@index')->name('index');
+        Route::get('/edit', 'CollegeController@edit')->name('edit');
+        Route::delete('/delete', 'CollegeController@delete')->name('delete');
+
+    });
+    Route::prefix('/professor')->name('professor.')->group(function () {
+        Route::get('/index', 'ProfessorController@index')->name('index');
+        Route::get('/edit', 'ProfessorController@edit')->name('edit');
+        Route::delete('/delete', 'ProfessorController@delete')->name('delete');
+
+    });
 });
 
-Route::middleware(['auth:company'])->name('company.')->prefix('company')->group(function () {
-    Route::get('/dashboard', 'CompanyController@dashboard')->name('dashboard');
-    Route::get('/profile', 'CompanyController@profile')->name('profile');
-    Route::get('/settings', 'CompanyController@settings')->name('settings');
-    Route::get('/changePassword', 'CompanyController@changePassword')->name('changePassword');
-    Route::get('/logout', 'CompanyController@logout')->name('logout');
+Route::middleware(['auth:professor'])->name('professor.')->prefix('professor')->group(function () {
+    Route::get('/dashboard', 'ProfessorController@dashboard')->name('dashboard');
+    Route::get('/profile', 'ProfessorController@profile')->name('profile');
+    Route::get('/settings', 'ProfessorController@settings')->name('settings');
+    Route::get('/changePassword', 'ProfessorController@changePassword')->name('changePassword');
+    Route::get('/logout', 'ProfessorController@logout')->name('logout');
 });
 
 
-Route::middleware(['auth:user'])->name('user.')->prefix('user')->group(function () {
-    Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::get('/settings', 'UserController@settings')->name('settings');
-    Route::get('/changePassword', 'UserController@changePassword')->name('changePassword');
-    Route::get('/logout', 'UserController@logout')->name('logout');
+Route::middleware(['auth:student'])->name('student.')->prefix('student')->group(function () {
+    Route::get('/profile', 'StudentController@profile')->name('profile');
+    Route::get('/settings', 'StudentController@settings')->name('settings');
+    Route::get('/changePassword', 'StudentController@changePassword')->name('changePassword');
+    Route::get('/logout', 'StudentController@logout')->name('logout');
 });

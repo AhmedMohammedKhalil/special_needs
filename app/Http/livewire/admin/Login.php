@@ -22,18 +22,18 @@ class Login extends Component
         'required' => 'ممنوع ترك الحقل فارغاَ',
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
         'email' => 'هذا الإيميل غير صحيح',
-        'exists' => 'هذا الايميل غير مسجل فى الموقع',
-
+        'exists' => 'هذا الايميل غير مسجل فى الموقع'
     ];
 
-    public function login(){
+    public function login()
+    {
         $validatedData = $this->validate();
-        if(Auth::guard('admin')->attempt($validatedData)){
+        if (Auth::guard('admin')->attempt($validatedData)) {
 
-            session()->flash('message', "تم دخولك ينجاح");
+            session()->flash('message', "تم تسجيل الدخول بنجاح");
             return redirect()->route('home');
-        }else{
-            session()->flash('error', 'هناك خطا فى الايميل او الباسورد');
+        } else {
+            session()->flash('error', 'الايميل او كلمة السر غير صحيح');
         }
     }
     public function render()

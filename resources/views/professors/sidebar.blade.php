@@ -1,0 +1,70 @@
+
+<div class="card">
+    <div class="card-body pattern-2">
+        <div class="wideget-user">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="wideget-user-desc text-center">
+                        <div class="wideget-user-img">
+                            @if (auth('professor')->user()->image != null)
+                            <img class="brround"
+                                src="{{asset('assets/images/data/professors/'.auth('professor')->user()->id.'/'.auth('professor')->user()->image)}}"
+                                alt="img">
+                            @else
+                            @if(auth('professor')->user()->gender == 'ذكر')
+                            <img class="brround" src="{{asset('assets/images/data/professors/male.jpg')}}" alt="img">
+                            @else
+                            <img class="brround" src="{{asset('assets/images/data/professors/female.jpg')}}" alt="img">
+                            @endif
+                            @endif
+                        </div>
+                        <div class="user-wrap wideget-user-info">
+                            <a href="javascript:void(0)">
+                                <h4 class="font-weight-semibold text-white">{{auth('professor')->user()->name}}</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <aside class="app-sidebar doc-sidebar my-dash">
+        <div class="app-sidebar__user clearfix">
+            <ul class="side-menu">
+                <li>
+                    <a class="side-menu__item @if(Request::is('*profile*')) active @endif"
+                        href="{{route('professor.profile')}}"><i class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">الصفحة الشخصية</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*colleges*')) active @endif"
+                        href="{{route('professor.colleges')}}"><i class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">الكليات</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*requests*')) active @endif"
+                        href="{{route('professor.requests')}}"><i class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">الطلبات</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*interviews*')) active @endif"
+                        href="{{route('professor.interviews.show')}}"><i class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">المقابلات</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*settings*')) active @endif"
+                        href="{{route('professor.settings')}}"><i class="side-menu__icon fe fe-settings"></i><span
+                            class="side-menu__label">الإعدادات</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item" href="{{route('professor.logout')}}"><i
+                            class="side-menu__icon fe fe-power"></i><span class="side-menu__label">خروج</span></a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</div>
