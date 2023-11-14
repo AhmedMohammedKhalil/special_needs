@@ -24,5 +24,13 @@ class Student extends Authenticatable
         'password',
     ];
 
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
+    }
 
+    public function interviews()
+    {
+        return $this->hasMany(Interview::class);
+    }
 }

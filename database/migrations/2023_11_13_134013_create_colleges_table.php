@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('colleges', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
-            $table->string('image')->nullable();
+            $table->text('location');
+            $table->text('description');
+            $table->text('image');
             $table->timestamps();
         });
     }
