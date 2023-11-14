@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\College;
+use App\Models\Professor;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +17,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $colleges = College::all();
+        $professors = Professor::all();
+        return view('home',compact('colleges','professors'));
     }
 }

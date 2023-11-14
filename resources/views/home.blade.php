@@ -1,139 +1,18 @@
 @extends('layouts.app')
 @section('landing')
-<div class="py-3 bg-white border-bottom">
-    <div class="owl-carousel classes-carousel owl-loaded owl-drag">
-        <div class="owl-stage-outer">
-            <div class="owl-stage"
-                style="transform: translate3d(2736px, 0px, 0px); transition: all 3s linear 0s; width: 7296px;">
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fa fa-balance-scale text-warning bg-warning-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Law Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i class="fe fe-hash text-danger bg-danger-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Maths Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-briefcase text-purple bg-purple-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Business Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-bar-chart text-pink bg-pink-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Marketing Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-book-open text-primary bg-primary-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Language Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-airplay text-secondary bg-secondary-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">IT Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item active" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-database text-success bg-success-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Datascience Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item active" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i class="fe fe-heart text-info bg-info-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Health Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fa fa-balance-scale text-warning bg-warning-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Law Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i class="fe fe-hash text-danger bg-danger-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Maths Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-briefcase text-purple bg-purple-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Business Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-bar-chart text-pink bg-pink-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Marketing Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-book-open text-primary bg-primary-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Language Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-airplay text-secondary bg-secondary-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">IT Online Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i
-                                class="fe fe-database text-success bg-success-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Datascience Course</div>
-                        </a> </div>
-                </div>
-                <div class="owl-item cloned" style="width: 456px;">
-                    <div class="item"> <a class="p-0 d-inline-flex br-7 border w-100" href="javascript:void(0)">
-                            <i class="fe fe-heart text-info bg-info-transparent fs-18 icon-circle-style"></i>
-                            <div class="ms-0 mt-0 font-weight-bold p-3 fs-16">Health Online Course</div>
-                        </a> </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span
-                    aria-label="Previous">‹</span></button><button type="button" role="presentation"
-                class="owl-next"><span aria-label="Next">›</span></button></div>
-        <div class="owl-dots disabled"></div>
-    </div>
-</div>
+
     <div class="section-first bg-background-1"
     data-vidbg-bg="mp4: assets/video/300052515.mp4, webm: assets/video/300052515.mp4, poster: assets/video/video-img.jpg"
-    data-vidbg-options="loop: true, muted: true, overlay: false" style="position: relative;height: 723px;">
-        <div class="vidbg-container"
-            style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%; background-image: none;height: 723px;">
-            <video autoplay="" loop="" muted=""
-                style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: none; visibility: visible; opacity: 1; width: auto; height: 723px;"
-                __idm_id__="663553">
-                <source src="assets/video/300052515.mp4" type="video/mp4">
-                <source src="assets/video/300052515.mp4" type="video/webm">
-            </video>
-        </div>
-
+    data-vidbg-options="loop: true, muted: true, overlay: false" style=" position: relative;height: 723px;">
+            <div class="vidbg-container"
+                style="position: absolute; z-index: 0; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%; background-image: none;height: 723px;background:black">
+                <video autoplay="" loop="" muted=""
+                    style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: none; visibility: visible; opacity: 0.5; width: auto; height: 723px;"
+                    __idm_id__="663553">
+                    <source src="assets/video/300052515.mp4" type="video/mp4">
+                    <source src="assets/video/300052515.mp4" type="video/webm">
+                </video>
+            </div>
         <!--Topbar-->
         <div class="header-main">
             @if (Auth('admin')->check() || Auth('student')->check() || Auth('professor')->check())
@@ -151,7 +30,111 @@
 @endsection
 
 @section('content')
+
+    {{-- About us --}}
+    <section class="sptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="section-title">
+                        <h2 class="leading-normal">من نحن</h2>
+                        <p class="fs-18">أنشأ هذا الموقع لرعاية المعوقين لتقدم خدماتها للأبناء ذوي الإعاقة وتحمل العبء عن ذويهم وتخفف معاناتهم وترشدهم إلى الطريق الصحيح لتعليم أبنائهم ودمجهم في المجتمع من خلال تقديمهم الى الكليات والسير نحو مستقبل افضل.</p>
+                        <p class="fs-18">
+                            تأسس الموقع على أيدي مجموعة من الطلبة المتطوعين المخلصين الذين سخرهم الله عز وجل لخدمة هذه الفئة عندما لم يكن بدولة الكويت من يهتم بهم سوى دور الرعاية الاجتماعية التابعة لوزارة الشؤون الاجتماعية والعمل.
+                        </p>
+
+                    </div> <a class="btn btn-primary px-6 fs-16" href="{{ route('aboutus') }}">المزيد</a>
+                </div>
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <img src="{{ asset('assets/images/banners/home-aboutus.jpeg') }}" alt="home-aboutus" style="box-shadow:#21206061 14px 14px 14px;border-radius:20px">
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- all colleges --}}
+    <section class="sptb">
+        <div class="container">
+            <div class="section-title">
+                <h2>جميع الكليات</h2>
+                <p class="fs-18 lead">جميع الكليات التى يتقدم اليها الطالب</p>
+            </div>
+            @if ($colleges->count() > 2)
+                <div class="owl-carousel owl-carousel-icons2">
+                    @foreach ($colleges as $college)
+                        <div class="item">
+                            <div class="card mb-0 overflow-hidden">
+                                <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><img src="assets/images/png/power.png" class=""></span></div>
+                                <div class="item-card2-img">
+                                    <a href="{{ route('colleges.show',['id'=>$college->id]) }}"></a>
+                                    <img src="{{ asset('assets/images/data/colleges/').$college->id.'/'.$colleges->image }}" alt="img" class="college-image">
+                                </div>
+                                <div class="card-body">
+                                    <div class="item-card2">
+                                        <div class="item-card2-desc">
+                                            <div class="item-card2-text mb-0">
+                                                <a href="{{ route('colleges.show',['id'=>$college->id]) }}" class="text-dark"><h4 class="mb-1 fs-18 leading-normal">{{ $college->name }}</h4></a>
+                                            </div>
+                                            <p class="fs-14">
+                                                {!! substr(nl2br($college->description),0,40).'...' !!}</p>
+                                            <h3>{{ $college->location }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            @elseif($colleges->count() > 0)
+            <div class="row">
+                <div class="item col-6">
+                    <div class="card mb-0 overflow-hidden">
+                        <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><img src="assets/images/png/power.png" class=""></span></div>
+                        <div class="item-card2-img">
+                            <a href="page-details.html"></a>
+                            <img src="assets/images/media/color/6.jpg" alt="img" class="cover-image">
+                        </div>
+                        <div class="card-body">
+                            <div class="item-card2">
+                                <div class="item-card2-desc">
+                                    <div class="d-flex mb-0">
+                                        <div class="star-ratings start-ratings-main clearfix me-3">
+                                            <div class="stars stars-example-fontawesome stars-example-fontawesome-sm">
+                                                <select class="example-fontawesome" name="rating" autocomplete="off">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5" selected>5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <span class="text-muted">&#40;695,745 students&#41;</span>
+                                    </div>
+                                    <div class="item-card2-text mb-0">
+                                        <a href="page-details.html" class="text-dark"><h4 class="mb-1 fs-18 leading-normal">Learn Java Classes in Online </h4></a>
+                                    </div>
+                                    <p class="fs-14">many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
+                                    <h3 class="mb-0 font-weight-semibold">$564 <del class="fs-14">$758</del></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
     {{-- <section class="pt-5">
         <div class="container">
             <div class="section-title d-md-flex">
