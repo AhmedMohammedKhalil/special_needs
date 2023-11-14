@@ -100,23 +100,23 @@
                                         <th>#</th>
                                         <th>الصورة</th>
                                         <th>الاسم</th>
-                                        <th>المسمى الوظيفى</th>
-                                        <th>التخصص</th>
+                                        <th> البريد الاكتروني</th>
+                                        <th>الكلية</th>
                                         <th>الموبايل</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($professors as $prof)
+                                    @foreach ($professors as $prof )
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>
                                                 @if ($prof->image != null)
-                                                    <img src="{{asset('assets/images/data/lawyers/'.$prof->id.'/'.$prof->image)}}" alt="img" class="w-7 h-7 br-7 me-3">
+                                                    <img src="{{asset('assets/images/data/professors/'.$prof->id.'/'.$prof->image)}}" alt="img" class="w-7 h-7 br-7 me-3">
                                                 @else
                                                     @if($prof->gender == 'ذكر')
-                                                    <img src="{{asset('assets/images/data/lawyers/male.jpg')}}" alt="img" class="w-7 h-7 br-7 me-3">
+                                                    <img src="{{asset('assets/images/data/professors/male.jpg')}}" alt="img" class="w-7 h-7 br-7 me-3">
                                                     @else
-                                                    <img src="{{asset('assets/images/data/lawyers/female.jpg')}}" alt="img" class="w-7 h-7 br-7 me-3">
+                                                    <img src="{{asset('assets/images/data/professors/female.jpg')}}" alt="img" class="w-7 h-7 br-7 me-3">
                                                     @endif
                                                 @endif
 
@@ -124,11 +124,9 @@
                                         <td>
                                             {{$prof->name}}
                                         </td>
-                                        <td>{{$prof->job_title}}</td>
-                                        <td>
-                                            @foreach ($prof->colleges as $c)
-                                                <span class="user-1 ms-2"> {{$c->name}}</span>
-                                            @endforeach
+                                        <td>{{$prof->email}}</td>
+                                        <td>                          
+                                                <span class="user-1 ms-2"> {{$prof->college->name}}</span>
                                         </td>
                                         <td>{{$prof->phone}}</td>
 

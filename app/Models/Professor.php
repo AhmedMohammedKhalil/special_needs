@@ -25,7 +25,7 @@ class Professor extends Authenticatable
 
     public function college()
     {
-        return $this->belongsTo(College::class);
+        return $this->belongsTo(College::class,'college_id');
     }
     public function meetings()
     {
