@@ -31,9 +31,7 @@
                 <li aria-haspopup="true" class="p-0 mt-1 ms-3">
                     <span><a class="btn btn-primary" href="{{ route('professor.login') }}">عضو هيئة التدريس<i class="fe fe-user me-1"></i></a></span>
                 </li>
-                <li aria-haspopup="true" class="p-0 mt-1 ms-3">
-                    <span><a class="btn btn-primary" href="{{ route('admin.login') }}">الأدمن<i class="fe fe-user me-1"></i></a></span>
-                </li>
+
                 @endunless
                 <li aria-haspopup="true"><a class="@if(Request::is('home/*') || Request::is('/')) active @endif"
                         href="{{route('home')}}">الصفحة الرئيسية</a>

@@ -1,4 +1,13 @@
 @extends('layouts.app')
+@push('css')
+<style>
+.item-card2-img img {
+    width: 100%;
+    height: 400px;
+}
+</style>
+
+@endpush
 @section('landing')
 
     <div class="section-first bg-background-1"
@@ -53,6 +62,7 @@
     </section>
 
     {{-- all colleges --}}
+    @if($colleges->count() > 0)
     <section class="sptb">
         <div class="container">
             <div class="section-title">
@@ -64,10 +74,14 @@
                     @foreach ($colleges as $college)
                         <div class="item">
                             <div class="card mb-0 overflow-hidden">
-                                <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><img src="assets/images/png/power.png" class=""></span></div>
                                 <div class="item-card2-img">
                                     <a href="{{ route('colleges.show',['id'=>$college->id]) }}"></a>
-                                    <img src="{{ asset('assets/images/data/colleges/').$college->id.'/'.$colleges->image }}" alt="img" class="college-image">
+                                    @if ($college->image != null)
+                                    <img src="{{asset('assets/images/data/colleges/'.$college->id.'/'.$college->image)}}"
+                                        alt="img">
+                                    @else
+                                        <img src="{{asset('assets/images/data/colleges/default.jpg')}}" alt="img">
+                                    @endif
                                 </div>
                                 <div class="card-body">
                                     <div class="item-card2">
@@ -76,8 +90,12 @@
                                                 <a href="{{ route('colleges.show',['id'=>$college->id]) }}" class="text-dark"><h4 class="mb-1 fs-18 leading-normal">{{ $college->name }}</h4></a>
                                             </div>
                                             <p class="fs-14">
-                                                {!! substr(nl2br($college->description),0,40).'...' !!}</p>
-                                            <h3>{{ $college->location }}</h3>
+                                                @if(strlen($college->description) > 40)
+                                                {!! substr(nl2br($college->description),0,40).'...' !!}
+                                                @else
+                                                {!! nl2br($college->description) !!}
+                                                @endif
+                                                <h3>{{ $college->location }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -86,120 +104,75 @@
                     @endforeach
 
                 </div>
-            @elseif($colleges->count() > 0)
+            @else
             <div class="row">
+                @foreach ($colleges as $college)
                 <div class="item col-6">
                     <div class="card mb-0 overflow-hidden">
-                        <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><img src="assets/images/png/power.png" class=""></span></div>
                         <div class="item-card2-img">
-                            <a href="page-details.html"></a>
-                            <img src="assets/images/media/color/6.jpg" alt="img" class="cover-image">
+                            <a href="{{ route('colleges.show',['id'=>$college->id]) }}"></a>
+                            @if ($college->image != null)
+                            <img src="{{asset('assets/images/data/colleges/'.$college->id.'/'.$college->image)}}"
+                                alt="img">
+                            @else
+                                <img src="{{asset('assets/images/data/colleges/default.jpg')}}" alt="img">
+                            @endif
                         </div>
                         <div class="card-body">
                             <div class="item-card2">
                                 <div class="item-card2-desc">
-                                    <div class="d-flex mb-0">
-                                        <div class="star-ratings start-ratings-main clearfix me-3">
-                                            <div class="stars stars-example-fontawesome stars-example-fontawesome-sm">
-                                                <select class="example-fontawesome" name="rating" autocomplete="off">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5" selected>5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <span class="text-muted">&#40;695,745 students&#41;</span>
-                                    </div>
                                     <div class="item-card2-text mb-0">
-                                        <a href="page-details.html" class="text-dark"><h4 class="mb-1 fs-18 leading-normal">Learn Java Classes in Online </h4></a>
+                                        <a href="{{ route('colleges.show',['id'=>$college->id]) }}" class="text-dark"><h4 class="mb-1 fs-18 leading-normal">{{ $college->name }}</h4></a>
                                     </div>
-                                    <p class="fs-14">many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
-                                    <h3 class="mb-0 font-weight-semibold">$564 <del class="fs-14">$758</del></h3>
+                                    <p class="fs-14">
+                                        @if(strlen($college->description) > 40)
+                                        {!! substr(nl2br($college->description),0,40).'...' !!}
+                                        @else
+                                        {!! nl2br($college->description) !!}
+                                        @endif
+                                        </p>
+                                    <h3>{{ $college->location }}</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
             @endif
 
         </div>
     </section>
+    @endif
 
-
-
-
-
-
-
-
-    {{-- <section class="pt-5">
+    {{-- Galleries --}}
+    <section class="sptb">
         <div class="container">
-            <div class="section-title d-md-flex">
-                <div>
-                    <h2>الكليات</h2>
-                </div>
+            <div class="section-title">
+                <h2>معرض الصور</h2>
             </div>
-            <div class="row text-center">
-                @foreach ($colleges as $collge)
-                    <div class="col-lg-4 col-md-6 col-sm-6 overflow-hidden mb-3">
-                        <a href="{{ route('colleges.show',['id' => $college->id]) }}">
-                            <div class="card bg-white br-7 p-5 mb-lg-0">
-                                <div class="icon-bg about">
-                                    <img class="rounded-3" src="{{ asset('assets/images/png/spec.jpg') }}" alt="">
+            <div class="col-md-12">
+                <div class="owl-carousel classes-carousel-1">
+                    @for ($i=1;$i<10;$i++)
+                        <div class="item">
+                            <div class="card mb-0">
+                                <div class="item-card">
+                                    <div class="item-card-desc">
+                                        <a href="javascript:void(0)"></a>
+                                        <div class="item-card-img" style="height: 400px">
+                                            <img src="{{ asset('assets/images/galleries/image'.$i.'.jpeg') }}" alt="{{'img-'.$i }}" class="" style="height:100%">
+                                        </div>
+                                        {{-- <div class="item-card-text">
+                                            <h4 class="mb-0">Data Science</h4>
+                                        </div> --}}
+                                    </div>
                                 </div>
-                                <div class="servic-data mt-3">
-                                    <h4 class="font-weight-semibold mb-2">{{ $college->name }}</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-
-
-            </div>
-        </div>
-    </section> --}}
-
-    {{-- all professors --}}
-    {{-- <section>
-        <hr class="border-0">
-        <div class="section-title d-md-flex">
-            <div>
-                <h2>اعضاء هيئة التدريس</h2>
-            </div>
-        </div>
-        <div class="row task-widget">
-            @foreach ($professors as $prof)
-                <div class="col-xl-4 col-md-12">
-                    <div class="card">
-                        <div class="item-card">
-                            <div class="item-card-desc">
-                                <a href="{{ route('professor.details',['id' => $prof->id]) }}"></a>
-                                <div class="item-card-img">
-                                    @if($prof->image == null)
-                                        @if($prof->gender == 'ذكر')
-                                            <img src="{{asset('assets/images/data/professors/male.jpg')}}" alt="img" class="">
-                                        @else
-                                            <img src="{{asset('assets/images/data/professors/female.jpg')}}" alt="img" class="">
-                                        @endif
-                                    @else
-                                        <img src="{{asset('assets/images/data/professors/'.$prof->id.'/'.$prof->image)}}" alt="img"class="">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="item-card-btn data-1" style="font-size: 30px">
-                                <a href="{{ route('lawyer.details',['id' => $prof->id]) }}" class="mb-0 text-center text-white">{{ $prof->name }}</a>
-                                <span class="text-white">{{ $prof->job_title }}</span>
                             </div>
                         </div>
-                    </div>
+                    @endfor
                 </div>
-            @endforeach
-
+            </div>
         </div>
-    </section> --}}
+    </section>
 
 @endsection

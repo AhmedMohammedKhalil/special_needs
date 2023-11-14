@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/colleges', 'HomeController@colleges')->name('colleges');
+Route::get('/colleges/show', 'HomeController@showCollege')->name('colleges.show');
 Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::middleware(['guest:admin', 'guest:professor', 'guest:student'])->group(function () {
     Route::get('/admin/login', 'AdminController@showLoginForm')->name('admin.login');
@@ -29,7 +30,6 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
     Route::get('/profile', 'AdminController@profile')->name('profile');
     Route::get('/settings', 'AdminController@settings')->name('settings');
-    // Route::get('/changePassword', 'AdminController@changePassword')->name('changePassword');
     Route::get('/logout', 'AdminController@logout')->name('logout');
     Route::prefix('/college')->name('college.')->group(function () {
         Route::get('/index', 'CollegeController@index')->name('index');
