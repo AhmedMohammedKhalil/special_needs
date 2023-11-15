@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('interviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->text('content');
             $table->text('details');
             $table->dateTime('date');
-            
             $table->integer('professor_id')->unsigned();
             $table->foreign('professor_id')
             ->references('id')
             ->on('professors')->onDelete("cascade")->onUpdate("cascade");
-            
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')
             ->references('id')

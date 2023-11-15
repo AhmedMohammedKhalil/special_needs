@@ -59,4 +59,21 @@ Route::middleware(['auth:student'])->name('student.')->prefix('student')->group(
     Route::get('/settings', 'StudentController@settings')->name('settings');
     Route::get('/changePassword', 'StudentController@changePassword')->name('changePassword');
     Route::get('/logout', 'StudentController@logout')->name('logout');
+
+    Route::prefix('/request')->name('request.')->group(function () {
+        Route::get('/index', 'RequestController@index')->name('index');
+        Route::get('/create', 'RequestController@create')->name('create');
+        Route::get('/show', 'RequestController@show')->name('show');
+        Route::get('/edit', 'RequestController@edit')->name('edit');
+        Route::delete('/delete', 'RequestController@delete')->name('delete');
+
+    });
+
+    Route::prefix('/interview')->name('interview.')->group(function () {
+        Route::get('/index', 'interviewController@index')->name('index');
+        Route::get('/show', 'interviewController@show')->name('show');
+        Route::get('/accept', 'interviewController@accept')->name('accept');
+        Route::get('/reject', 'interviewController@delete')->name('reject');
+
+    });
 });

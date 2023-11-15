@@ -12,7 +12,7 @@ class Student extends Authenticatable
     protected $guard = 'student';
 
     protected $fillable = [
-        'name', 'email','phone','address','password','image','gender',
+        'name', 'email','phone','status','disability_type','address','password','image','gender',
     ];
 
     /**
@@ -24,13 +24,19 @@ class Student extends Authenticatable
         'password',
     ];
 
-    public function requests()
+    public function colleges()
     {
-        return $this->hasMany(Request::class);
+        return $this->belongsToMany(College::class,'requests','$student_id','$colleg_id')
+        ->using(Request::class)->withTimestamps();
     }
 
-    public function interviews()
+    public function professors()
     {
-        return $this->hasMany(Interview::class);
+        return $this->belongsToMany(Professor::class,'interviews','$student_id','$professor_id')
+        ->using(Interview::class)->withTimestamps();
+    }
+
+    public function assistant () {
+        return $this->hasOne(Assistant::class);
     }
 }

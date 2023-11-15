@@ -38,7 +38,7 @@
                                         </div>
                                         @auth('student')
                                             <div class="btn-list">
-                                                <a href="{{ route('student.requests.add',['id'=>$college->id]) }}" class="btn btn-primary btn-md mb-5 mb-lg-0">ارسال طلب</a>
+                                                <a href="{{ route('student.request.create',['college_id'=>$college->id]) }}" class="btn btn-primary btn-md mb-5 mb-lg-0">ارسال طلب</a>
                                             </div>
                                         @endauth
                                     </div>

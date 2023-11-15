@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Interview extends Model
+class Interview extends Pivot
 {
     use HasFactory;
 
@@ -13,12 +14,12 @@ class Interview extends Model
         'status','content','details','date','professor_id','student_id'
     ];
 
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
-    public function professor()
-    {
-        return $this->belongsTo(Professor::class);
-    }
+    // public function student()
+    // {
+    //     return $this->belongsTo(Student::class);
+    // }
+    // public function professor()
+    // {
+    //     return $this->belongsTo(Professor::class);
+    // }
 }

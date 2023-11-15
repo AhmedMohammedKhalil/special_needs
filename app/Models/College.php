@@ -18,8 +18,11 @@ class College extends Model
     {
         return $this->hasMany(Professor::class);
     }
-    public function requests()
+
+    public function students()
     {
-        return $this->hasMany(Request::class);
+        return $this->belongsToMany(Student::class,'requests','$college_id','$student_id')
+        ->using(Request::class)->withTimestamps();
     }
+
 }

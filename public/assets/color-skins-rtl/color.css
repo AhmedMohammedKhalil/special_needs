@@ -1323,15 +1323,15 @@ form.convFormDynamic button.submit:hover {
 
 .pattern-1:before,
 .pattern:before {
-  background: rgb(14 97 59 / 82%) !important;
+  background: #2384c6bd !important;
 }
 
 .pattern-2:before {
-  background: rgb(14 97 59 / 82%) !important;
+  background: #2384c6bd !important;
 }
 
 .pattern-3:before {
-  background: rgb(14 97 59 / 82%) !important;
+  background: #2384c6bd !important;
 }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label {

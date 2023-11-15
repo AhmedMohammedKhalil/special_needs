@@ -28,8 +28,13 @@
                         </span> <span class="user-1 ms-2"> {{auth('student')->user()->phone}}</span></li>
                 <li><span class="font-weight-bold text-default-dark float-start">الجنس :
                         </span> <span class="user-1 ms-2"> {{auth('student')->user()->gender}}</span></li>
+                        <li><span class="font-weight-bold text-default-dark float-start">نوع الإعاقة :
+                        </span> <span class="user-1 ms-2"> {{auth('student')->user()->disability_type}}</span></li>
+                <li><span class="font-weight-bold text-default-dark float-start">الحالة المرضية :
+                </span><p class="d-inline-block mx-2">{{ nl2br(auth('student')->user()->status) }}</p></li>
                 <li><span class="font-weight-bold text-default-dark float-start">العنوان :
                         </span><p class="d-inline-block mx-2">{{ nl2br(auth('student')->user()->address) }}</p></li>
+
             </ul>
         </div>
     </div>

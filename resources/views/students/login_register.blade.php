@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="single-page customerpage">
                                     <div class="wrapper wrapper2 box-shadow-0">
-                                        @livewire('student.login')
+                                        @livewire('student.login',key('login'))
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="single-page customerpage">
                                     <div class="wrapper wrapper2 box-shadow-0">
-                                        @livewire('student.register')
+                                        @livewire('student.register',key('register'))
                                     </div>
                                 </div>
                             </div>
