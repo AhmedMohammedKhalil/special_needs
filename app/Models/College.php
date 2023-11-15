@@ -21,7 +21,7 @@ class College extends Model
 
     public function students()
     {
-        return $this->belongsToMany(Student::class,'requests','$college_id','$student_id')
+        return $this->belongsToMany(Student::class,'requests','college_id','student_id')
         ->using(Request::class)->withTimestamps();
     }
 

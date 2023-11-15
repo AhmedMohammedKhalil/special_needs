@@ -12,4 +12,9 @@ class Request extends Pivot
     protected $fillable = [
         'acceptable', 'review','content','file','special_needs','college_id','student_id'
     ];
+
+
+    public $incrementing = true;
+
+
 }

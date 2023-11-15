@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Student\Request;
 
 use App\Models\College;
+use App\Models\Student;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
@@ -12,11 +13,12 @@ class Add extends Component
 {
 
     use WithFileUploads;
-    public $special_needs, $content,$college_id,$file;
+    public $special_needs, $content,$college_id,$file,$student,$request;
 
     public function mount($college_id)
     {
-        $this->college_id = $this->college->id;
+        $this->college_id = $college_id;
+        $this->student = Student::whereId(auth('student')->user()->id)->first();
     }
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
@@ -43,21 +45,23 @@ class Add extends Component
     {
         $validatedata = $this->validate();
         if (!$this->file)
-
+            $this->request = $this->student->colleges()->attach($this->college_id,$validatedata);
         if ($this->file) {
             $this->updatedfile();
             $filename = $this->file->getClientOriginalName();
-            $college = College::create(array_merge($validatedata, ['file' => $filename]));
-            $dir = public_path('assets/files/data/colleges/' . $college->id);
-            if (file_exists($dir))
-                File::deleteDirectories($dir);
-            else
-                mkdir($dir);
-            $this->file->storeAs('colleges/' . $college->id, $filename);
-            File::deleteDirectory(public_path('assets/files/data/livewire-tmp'));
+            $this->request = $this->student->colleges()->attach($this->college_id,array_merge($validatedata, ['file' => $filename]));
+
+            // $dir = public_path('assets/files/data/requests/' . $college->id);
+            // if (file_exists($dir))
+            //     File::deleteDirectories($dir);
+            // else
+            //     mkdir($dir);
+            // $this->file->storeAs('colleges/' . $college->id, $filename);
+            // File::deleteDirectory(public_path('assets/files/data/livewire-tmp'));
         }
+        dd($this->request);
         session()->flash('message', "تم إتمام العملية بنجاح");
-        return redirect()->route('admin.college.index');
+        return redirect()->route('student.request.index');
     }
     public function render()
     {

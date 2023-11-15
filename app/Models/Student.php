@@ -26,13 +26,13 @@ class Student extends Authenticatable
 
     public function colleges()
     {
-        return $this->belongsToMany(College::class,'requests','$student_id','$colleg_id')
+        return $this->belongsToMany(College::class,'requests','student_id','college_id')
         ->using(Request::class)->withTimestamps();
     }
 
     public function professors()
     {
-        return $this->belongsToMany(Professor::class,'interviews','$student_id','$professor_id')
+        return $this->belongsToMany(Professor::class,'interviews','student_id','professor_id')
         ->using(Interview::class)->withTimestamps();
     }
 

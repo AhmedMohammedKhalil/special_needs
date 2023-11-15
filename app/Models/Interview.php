@@ -14,6 +14,11 @@ class Interview extends Pivot
         'status','content','details','date','professor_id','student_id'
     ];
 
+
+    public $incrementing = true;
+
+
+
     // public function student()
     // {
     //     return $this->belongsTo(Student::class);

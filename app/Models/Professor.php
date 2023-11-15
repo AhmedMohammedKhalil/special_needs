@@ -32,7 +32,7 @@ class Professor extends Authenticatable
 
     public function students()
     {
-        return $this->belongsToMany(Student::class,'interviews','$professor_id','$student_id')
+        return $this->belongsToMany(Student::class,'interviews','professor_id','student_id')
         ->using(Interview::class)->withTimestamps();
     }
 
