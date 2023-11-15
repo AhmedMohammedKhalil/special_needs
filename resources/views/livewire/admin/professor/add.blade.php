@@ -60,6 +60,25 @@
         </div>
     </div>
 
+    <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 d-flex align-items-center">
+                        <label class="form-label mb-0" id="examplenameInputname2">الكلية :</label>
+                    </div>
+                                    <div class="select-box col-md-8" >
+                                        <select class="form-control form-text" name="college_id" wire:model='college_id'>
+                                            <option value="0">اختر الكلية</option>
+                                            @foreach ($colleges as $col)
+                                            <option value="{{ $col->id }}">{{ $col->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('department_id')
+                                    <span class="text-danger error">{{ $message }}</span>
+                                    @enderror
+                </div>
+    </div>
+
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">

@@ -14,7 +14,7 @@ use Livewire\Component;
 class Add extends Component
 {
     use WithFileUploads;
-    public $name, $location,$details,$image;
+    public $name, $location,$description,$image,$keywords;
 
 
     protected $messages = [
@@ -32,8 +32,8 @@ class Add extends Component
     protected $rules = [
         'name' => ['required', 'string', 'max:50'],
         'location' => ['required', 'string', 'max:50'],
-        'details' => ['required', 'max:255'],
-        'gender' => ['required']
+        'description' => ['required', 'max:255'],
+        'keywords' => ['required']
     ];
 
     public function updatedImage()

@@ -11,7 +11,7 @@ class College extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'location','description','image',
+        'name', 'location','description','image','keywords'
     ];
 
     public function professors()

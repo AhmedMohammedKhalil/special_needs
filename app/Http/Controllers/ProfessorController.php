@@ -18,7 +18,7 @@ class ProfessorController extends Controller
 
 
     public function edit(Request $r)
-    {
+    {   
         $professor = Professor::whereId($r->id)->first();
         return view('admins.professors.edit', compact('professor'));
     }
@@ -26,7 +26,7 @@ class ProfessorController extends Controller
     public function delete(Request $r)
     {
         Professor::destroy($r->id);
-        return redirect()->route('admin.professors.index');
+        return redirect()->route('admin.professor.index');
     }
 
     public function showLoginForm() {

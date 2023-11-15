@@ -23,7 +23,9 @@
                     <table class="data-table-example table table-bordered table-hover mb-0 text-nowrap">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>الكلية</th>
+                                <th>المكان</th>
                                 <th>إعدادات</th>
                             </tr>
                         </thead>
@@ -31,20 +33,30 @@
                             @foreach ($colleges as $c)
                             <tr id="tr_{{$c->id}}">
                                 <td>
+                                                @if ($c->image != null)
+                                                    <img src="{{asset('assets/images/data/colleges/'.$c->id.'/'.$c->image)}}" alt="img" class="w-7 h-7 br-7 me-3">
+                                                @else
+                                                    <img src="{{asset('assets/images/data/colleges/college.JPG')}}" alt="img" class="w-7 h-7 br-7 me-3">                      
+                                                @endif
+                                </td>
+                                <td>
                                     <div class="media mt-0 mb-0">
-                                        <div class="card-aside-img">
-                                            <a href="javascript:void(0)"></a>
-                                            <img src="{{asset('assets/images/media/color/sm-2/4.jpg')}}" alt="img">
-                                        </div>
                                         <div class="media-body">
                                             <div class="card-item-desc ms-2 p-0 mt-0">
                                                 <a href="javascript:void(0)" class="text-dark">
                                                     <h4 class="font-weight-bold">{{$c->name}}</h4>
                                                 </a>
-                                                {{-- <a href="javascript:void(0)" class="text-dark">
-                                                    <h4 class="font-weight-bold">عدد المحامين : {{$c->re->count()}}
-                                                    </h4>
-                                                </a> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="media mt-0 mb-0">
+                                        <div class="media-body">
+                                            <div class="card-item-desc ms-2 p-0 mt-0">
+                                                <a href="javascript:void(0)" class="text-dark">
+                                                    <h4 class="font-weight-bold">{{$c->location}}</h4>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -54,14 +66,20 @@
                                         data-bs-toggle="tooltip" data-bs-original-title="تعديل"
                                         href="{{ route('admin.college.edit',['id'=>$c->id]) }}"><i
                                             class="fe fe-edit-2 fs-16"></i></a>
-                                    {{-- @if ($spec->lawyers->count() == 0)
+                                    
+                                    <a class="btn btn-outline-light btn-sm waves-effect waves-light"
+                                        data-bs-toggle="tooltip" data-bs-original-title="عرض"
+                                        href="{{ route('admin.college.show',['id'=>$c->id]) }}"><i
+                                            class="fe fe-eye fs-16"></i></a>
+
+                                    @if ($c->professors->count()==0 && $c->requests->count()==0 )
                                     <form action="{{  route('admin.college.delete',['id'=>$c->id])  }}" method="post" class="d-inline-block">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-outline-light btn-sm waves-effect waves-light"
                                         data-bs-toggle="tooltip" data-bs-original-title="حذف" type="submit"><i class="fe fe-trash fs-16"></i></button>
                                     </form>
-                                    @endif --}}
+                                    @endif 
                                 </td>
                             </tr>
                             @endforeach

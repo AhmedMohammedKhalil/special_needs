@@ -34,6 +34,7 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::prefix('/college')->name('college.')->group(function () {
         Route::get('/index', 'CollegeController@index')->name('index');
         Route::get('/edit', 'CollegeController@edit')->name('edit');
+        Route::get('/show', 'CollegeController@show')->name('show');
         Route::delete('/delete', 'CollegeController@delete')->name('delete');
 
     });

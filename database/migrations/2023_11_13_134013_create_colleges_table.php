@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('location');
             $table->text('description');
             $table->text('image');
+            $table->text('keywords');
             $table->timestamps();
         });
     }

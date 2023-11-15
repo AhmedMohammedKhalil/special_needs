@@ -26,6 +26,19 @@
             </div>
         </div>
     </div>
+
+      <div class="form-group ">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
+                <label class="form-label mb-0" id="examplenameInputname2">كلمات دلالية :</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="keywords" wire:model.lazy='keywords' class="form-control form-text">
+                @error('keywords') <span class="text-danger error">{{ $message }}</span>@enderror
+            </div>
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
@@ -51,10 +64,10 @@
                 <label class="form-label mb-0" id="examplenameInputname2">تفاصيل :</label>
             </div>
             <div class="col-md-8">
-                <textarea class="form-control form-text" name="details" id="" rows="6" wire:model.lazy='details'
+                <textarea class="form-control form-text" name="description" id="" rows="6" wire:model.lazy='description'
                     placeholder="تفاصيل"></textarea>
             </div>
-            @error('details') <span class="text-danger error">{{ $message }}</span>@enderror
+            @error('description') <span class="text-danger error">{{ $message }}</span>@enderror
         </div>
     </div>
 

@@ -23,7 +23,10 @@
                     <table class="data-table-example table table-bordered table-hover mb-0 text-nowrap">
                         <thead>
                             <tr>
-                                <th>عضو هيئة التدريس</th>
+                                <th></th>
+                                <th>اسم عضو هيئة التدريس</th>
+                                <th>الكلية</th>
+                                <th>رقم الهاتف</th>
                                 <th>إعدادات</th>
                             </tr>
                         </thead>
@@ -31,37 +34,38 @@
                             @foreach ($professors as $prof)
                             <tr id="tr_{{$prof->id}}">
                                 <td>
-                                    <div class="media mt-0 mb-0">
-                                        <div class="card-aside-img">
-                                            <a href="javascript:void(0)"></a>
-                                            <img src="{{asset('assets/images/media/color/sm-2/4.jpg')}}" alt="img">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="card-item-desc ms-2 p-0 mt-0">
-                                                <a href="javascript:void(0)" class="text-dark">
-                                                    <h4 class="font-weight-bold">{{$prof->name}}</h4>
-                                                </a>
-                                                {{-- <a href="javascript:void(0)" class="text-dark">
-                                                    <h4 class="font-weight-bold">عدد المحامين : {{$prof->re->count()}}
-                                                    </h4>
-                                                </a> --}}
-                                            </div>
-                                        </div>
-                                    </div>
+                                                @if ($prof->image != null)
+                                                    <img src="{{asset('assets/images/data/professors/'.$prof->id.'/'.$prof->image)}}" alt="img" class="w-7 h-7 br-7 me-3">
+                                                @else
+                                                    @if($prof->gender == 'ذكر')
+                                                    <img src="{{asset('assets/images/data/professors/male.jpg')}}" alt="img" class="w-7 h-7 br-7 me-3">
+                                                    @else
+                                                    <img src="{{asset('assets/images/data/professors/female.jpg')}}" alt="img" class="w-7 h-7 br-7 me-3">
+                                                    @endif
+                                                @endif
+
                                 </td>
+                                
+                                <td>
+                                    {{$prof->name}}
+                                </td>
+                                <td>                          
+                                    <span class="user-1 ms-2"> {{$prof->college->name}}</span>
+                                </td>
+                                <td>{{$prof->phone}}</td>
                                 <td>
                                     <a class="btn btn-outline-light btn-sm waves-effect waves-light"
                                         data-bs-toggle="tooltip" data-bs-original-title="تعديل"
                                         href="{{ route('admin.professor.edit',['id'=>$prof->id]) }}"><i
                                             class="fe fe-edit-2 fs-16"></i></a>
-                                    {{-- @if ($spec->lawyers->count() == 0)
+                                     @if ($professors->count() > 1 && $prof->meetings->count()==0)
                                     <form action="{{  route('admin.professor.delete',['id'=>$prof->id])  }}" method="post" class="d-inline-block">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-outline-light btn-sm waves-effect waves-light"
                                         data-bs-toggle="tooltip" data-bs-original-title="حذف" type="submit"><i class="fe fe-trash fs-16"></i></button>
                                     </form>
-                                    @endif --}}
+                                    @endif 
                                 </td>
                             </tr>
                             @endforeach

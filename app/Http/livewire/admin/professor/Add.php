@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Professor;
 
+use App\Models\College;
 use App\Models\Professor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -9,7 +10,7 @@ use Livewire\Component;
 
 class Add extends Component
 {
-    public $name, $email, $password, $confirm_password, $phone, $gender;
+    public $name, $email, $password, $confirm_password, $phone, $gender,$colleges,$college_id;
 
 
     protected $rules = [
@@ -19,6 +20,8 @@ class Add extends Component
         'password' => ['required', 'string', 'min:8'],
         'confirm_password' => ['required', 'string', 'min:8','same:password'],
         'gender' => ['required'],
+        'college_id' => ['required','gt:0'],
+
 
     ];
 
@@ -34,6 +37,7 @@ class Add extends Component
         'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
         'regex' => 'لا بد ان يكون الحقل ارقام فقط',
         'max' => 'لابد ان يكون الحقل مكون على الاكثر من 255 خانة',
+        'college_id.gt' => 'لابد ان يتم الاختيار الكلية'
     ];
 
 
@@ -43,13 +47,13 @@ class Add extends Component
             $validatedData,
             ['password' => Hash::make($this->password)]
         );
-        //dd($data);
         professor::create($data);
-
+        return redirect()->route('admin.professor.index');
     }
 
     public function render()
     {
+        $this->colleges = College::all();
         return view('livewire.admin.professor.add');
     }
 }

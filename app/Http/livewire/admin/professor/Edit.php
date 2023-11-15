@@ -14,16 +14,16 @@ use Livewire\Component;
 class Edit extends Component
 {
     use WithFileUploads;
-    public $name, $email,$gender,$phone,$image, $password, $confirm_password, $professor_id;
+    public $name, $email,$gender,$phone,$image, $password, $confirm_password, $professor,$professor_id;
 
 
-    public function mount()
+    public function mount($professor)
     {
-        $this->professor_id = Auth::guard('professor')->user()->id;
-        $this->name = Auth::guard('professor')->user()->name;
-        $this->email = Auth::guard('professor')->user()->email;
-        $this->gender = Auth::guard('professor')->user()->gender;
-        $this->phone = Auth::guard('professor')->user()->phone;
+        $this->professor_id = $professor->id;
+        $this->name = $professor->name;
+        $this->email = $professor->email;
+        $this->gender = $professor->gender;
+        $this->phone = $professor->phone;
 
     }
 

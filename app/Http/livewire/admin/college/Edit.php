@@ -14,7 +14,7 @@ use Livewire\Component;
 class Edit extends Component
 {
     use WithFileUploads;
-    public $name, $location,$details,$image,$college_id,$college;
+    public $name, $location,$description,$image,$college_id,$college,$keywords;
 
 
     public function mount($college)
@@ -23,8 +23,9 @@ class Edit extends Component
         $this->college_id = $this->college->id;
         $this->location = $this->college->location;
         $this->name = $this->college->name;
-        $this->details = $this->college->details;
+        $this->description = $this->college->description;
         $this->image = $this->college->image;
+        $this->keywords = $this->college->keywords;
 
 
     }
@@ -43,8 +44,8 @@ class Edit extends Component
     protected $rules = [
         'name' => ['required', 'string', 'max:50'],
         'location' => ['required', 'string', 'max:50'],
-        'details' => ['required', 'max:255'],
-        'gender' => ['required']
+        'description' => ['required', 'max:255'],
+        'keywords' => ['required']
     ];
 
     public function updatedImage()

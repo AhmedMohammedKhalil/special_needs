@@ -20,6 +20,12 @@ class CollegeController extends Controller
         return view('admins.colleges.edit', compact('college'));
     }
 
+    public function show(Request $r)
+    {
+        $college = College::whereId($r->id)->first();
+        return view('admins.colleges.show', compact('college'));
+    }
+
     public function delete(Request $r)
     {
         College::destroy($r->id);
