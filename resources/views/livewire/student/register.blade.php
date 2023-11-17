@@ -40,7 +40,24 @@
             @error('gender') <span class="text-danger error">{{ $message }}</span>@enderror
         </div>
     </div>
-
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
+                <label class="form-label mb-0" id="examplenameInputname2">نوع الإعاقة :</label>
+            </div>
+            <div class="select-box col-md-8">
+                <select class="form-control form-text" name="disability_type" wire:model='disability_type'>
+                    <option value="0">اختر نوع الإعاقة</option>
+                    @foreach ($types as $type)
+                    <option value="{{ $loop->iteration }}">{{ $type }}</option>
+                    @endforeach
+                </select>
+            </div>
+            @error('disability_type')
+            <span class="text-danger error">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
     <div class="passwd">
         <label>كلمة السر</label>
         <input type="password" name="password" class="border-dark" wire:model.lazy='password' style="direction: ltr">
@@ -51,11 +68,18 @@
         <input type="password" name="confirm_password" class="border-dark" wire:model.lazy='confirm_password' style="direction: ltr">
         @error('confirm_password') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
-
     <div class="form-group ">
         <div class="row">
             <div class="col-md-12">
-                <textarea name="address" id="" cols="30" rows="6" wire:model.lazy='address' placeholder="العنوان"></textarea>
+                <textarea name="status" id="status" cols="30" rows="6" wire:model.lazy='status' placeholder="الحالة المرضية"></textarea>
+            </div>
+            @error('status') <span class="text-danger error">{{ $message }}</span>@enderror
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="row">
+            <div class="col-md-12">
+                <textarea name="address" id="address" cols="30" rows="6" wire:model.lazy='address' placeholder="العنوان"></textarea>
             </div>
             @error('address') <span class="text-danger error">{{ $message }}</span>@enderror
         </div>

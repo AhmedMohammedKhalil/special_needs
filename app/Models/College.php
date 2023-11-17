@@ -11,15 +11,18 @@ class College extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'location','description','image','keywords'
+        'name', 'location','description','image','keywords',
     ];
 
     public function professors()
     {
         return $this->hasMany(Professor::class);
     }
-    public function requests()
+
+    public function students()
     {
-        return $this->hasMany(Request::class);
+        return $this->belongsToMany(Student::class,'requests','college_id','student_id')
+        ->using(Request::class)->withPivot('id','acceptable', 'review','content','file','special_needs')->withTimestamps();
     }
+
 }

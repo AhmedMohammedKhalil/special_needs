@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->text('image')->nullable();
-            $table->string('gender')->nullable();
+            $table->string('gender');
             $table->string('phone',8);
             $table->integer('college_id')->unsigned();
             $table->foreign('college_id')

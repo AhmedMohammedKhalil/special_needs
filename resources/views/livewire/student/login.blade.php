@@ -1,4 +1,4 @@
-<form id="register_user" wire:submit.prevent='login' tabindex="500">
+<form id="login_user" wire:submit.prevent='login' tabindex="500">
     @if (session()->has('error'))
         <div class="col-lg-12 alert alert-danger">
             {{ session('error') }}

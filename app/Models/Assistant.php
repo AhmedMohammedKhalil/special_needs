@@ -12,4 +12,8 @@ class Assistant extends Model
     protected $fillable = [
         'name','phone','gender','student_id'
     ];
+
+    public function student () {
+        return $this->belongsTo(Student::class);
+    }
 }
