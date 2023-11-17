@@ -62,6 +62,24 @@
     <div class="form-group">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
+                <label class="form-label mb-0" id="examplenameInputname2">نوع الإعاقة :</label>
+            </div>
+            <div class="select-box col-md-8">
+                <select class="form-control form-text" name="disability_type" wire:model='disability_type'>
+                    <option value="0">اختر نوع الإعاقة</option>
+                    @foreach ($types as $type)
+                    <option value="{{ $loop->iteration }}" @if($this->disability_type == $loop->iteration) selected @endif >{{ $type }}</option>
+                    @endforeach
+                </select>
+            </div>
+            @error('disability_type')
+            <span class="text-danger error">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
                 <label class="form-label mb-0">صورتك الشخصية :</label>
             </div>
             <div class="col-md-8">
@@ -81,15 +99,28 @@
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
+                <label class="form-label mb-0" id="examplenameInputname2">الحالة المرضية :</label>
+            </div>
+            <div class="col-md-8">
+                <textarea class="form-control form-text" name="status" id="status" rows="6" wire:model.lazy='status'
+                    placeholder="الحالة المرضية"></textarea>
+            </div>
+            @error('status') <span class="text-danger error">{{ $message }}</span>@enderror
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
                 <label class="form-label mb-0" id="examplenameInputname2">العنوان :</label>
             </div>
             <div class="col-md-8">
-                <textarea class="form-control form-text" name="address" id="" rows="6" wire:model.lazy='address'
+                <textarea class="form-control form-text" name="address" id="address" rows="6" wire:model.lazy='address'
                     placeholder="العنوان"></textarea>
             </div>
             @error('address') <span class="text-danger error">{{ $message }}</span>@enderror
         </div>
     </div>
+
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
@@ -117,8 +148,8 @@
 
 
 
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+    <div class="form-group mx-auto w-auto">
+        <input type="submit" class="btn btn-primary d-block mx-auto" value="حفظ التغييرات">
     </div>
 
 </form>

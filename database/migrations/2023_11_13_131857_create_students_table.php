@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->text('image')->nullable();
-            $table->string('status');
+            $table->text('status');
+            $table->text('address');
             $table->string('disability_type');
-            $table->string('gender')->nullable();
+            $table->string('gender');
             $table->string('phone',8);
             $table->string('password');
             $table->timestamps();

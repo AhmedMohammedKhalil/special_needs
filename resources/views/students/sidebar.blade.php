@@ -40,16 +40,16 @@
                         href="{{route('student.profile')}}"><i class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">الصفحة الشخصية</span></a>
                 </li>
-                <li>
-                    <a class="side-menu__item @if(Request::is('*requests*')) active @endif"
-                        href="{{route('student.requests')}}"><i class="side-menu__icon fe fe-user"></i><span
+                {{-- <li>
+                    <a class="side-menu__item @if(Request::is('*request*')) active @endif"
+                        href="{{route('student.request.index')}}"><i class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">الطلبات</span></a>
                 </li>
                 <li>
-                    <a class="side-menu__item @if(Request::is('*interviews*')) active @endif"
-                        href="{{route('student.interviews.show')}}"><i class="side-menu__icon fe fe-user"></i><span
+                    <a class="side-menu__item @if(Request::is('*interview*')) active @endif"
+                        href="{{route('student.interview.index')}}"><i class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">المقابلات</span></a>
-                </li>
+                </li> --}}
                 <li>
                     <a class="side-menu__item @if(Request::is('*settings*')) active @endif"
                         href="{{route('student.settings')}}"><i class="side-menu__icon fe fe-settings"></i><span

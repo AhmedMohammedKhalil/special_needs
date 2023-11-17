@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('acceptable');
-            $table->text('review');
+            $table->string('acceptable')->nullable();
+            $table->text('review')->nullable();
             $table->text('content');
-            $table->text('file');
+            $table->text('file')->nullable();
             $table->text('special_needs');
             $table->integer('college_id')->unsigned();
             $table->foreign('college_id')

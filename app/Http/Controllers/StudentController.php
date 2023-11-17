@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Professor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class StudentController extends Controller
 {
@@ -20,8 +21,12 @@ class StudentController extends Controller
         return view('admins.dashboard',compact('page_name','professor_count'));
     }
 
-    public function profile() {
-        return view('students.profile',['page_name' => 'البروفايل']);
+    public function profile(Request $r) {
+        $page_name = 'البروفايل';
+        if(isset($r)) {
+            $tab = $r->tab ?? 'profile';
+        }
+        return view('students.profile',compact('page_name','tab'));
     }
 
     public function settings() {

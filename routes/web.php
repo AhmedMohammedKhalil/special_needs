@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/colleges', 'HomeController@colleges')->name('colleges');
+Route::get('/colleges/show', 'HomeController@showCollege')->name('colleges.show');
 Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::middleware(['guest:admin', 'guest:professor', 'guest:student'])->group(function () {
     Route::get('/admin/login', 'AdminController@showLoginForm')->name('admin.login');
@@ -29,7 +30,6 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
     Route::get('/profile', 'AdminController@profile')->name('profile');
     Route::get('/settings', 'AdminController@settings')->name('settings');
-    // Route::get('/changePassword', 'AdminController@changePassword')->name('changePassword');
     Route::get('/logout', 'AdminController@logout')->name('logout');
     Route::prefix('/college')->name('college.')->group(function () {
         Route::get('/index', 'CollegeController@index')->name('index');
@@ -59,4 +59,31 @@ Route::middleware(['auth:student'])->name('student.')->prefix('student')->group(
     Route::get('/settings', 'StudentController@settings')->name('settings');
     Route::get('/changePassword', 'StudentController@changePassword')->name('changePassword');
     Route::get('/logout', 'StudentController@logout')->name('logout');
+
+    Route::prefix('/request')->name('request.')->group(function () {
+        Route::get('/create', 'RequestController@create')->name('create');
+        Route::get('/show', 'RequestController@show')->name('show');
+        Route::get('/edit', 'RequestController@edit')->name('edit');
+        Route::get('/showfile', 'RequestController@showFile')->name('showFile');
+        Route::get('/downloadfile', 'RequestController@downloadFile')->name('downloadFile');
+        Route::delete('/delete', 'RequestController@delete')->name('delete');
+
+
+    });
+
+    Route::prefix('/interview')->name('interview.')->group(function () {
+        Route::get('/show', 'interviewController@show')->name('show');
+        Route::get('/accept', 'interviewController@accept')->name('accept');
+        Route::get('/reject', 'interviewController@reject')->name('reject');
+
+    });
+
+
+    Route::prefix('/assistant')->name('assistant.')->group(function () {
+        Route::get('/create', 'AssistantController@create')->name('create');
+        Route::get('/edit', 'AssistantController@edit')->name('edit');
+        Route::delete('/delete', 'AssistantController@delete')->name('delete');
+
+
+    });
 });

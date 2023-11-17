@@ -14,7 +14,7 @@ use Livewire\Component;
 class Settings extends Component
 {
     use WithFileUploads;
-    public $name, $email,$gender,$phone,$image, $password, $confirm_password,$address, $student_id;
+    public $types, $name, $email,$gender,$phone,$image,$status,$disability_type, $password, $confirm_password,$address, $student_id;
 
 
     public function mount()
@@ -25,6 +25,24 @@ class Settings extends Component
         $this->gender = Auth::guard('student')->user()->gender;
         $this->phone = Auth::guard('student')->user()->phone;
         $this->address = Auth::guard('student')->user()->address;
+        $this->disability_type = Auth::guard('student')->user()->disability_type;
+        $this->status = Auth::guard('student')->user()->status;
+
+
+        $this->types = [
+            "الإعاقة البصرية",
+            "الإعاقة السمعية",
+            "الإعاقة العقلية",
+            "الإعاقة الجسمية والحركية",
+            "اضطرابات النطق والكلام",
+            "الاضطرابات السلوكية والانفعالية",
+            "التوحد",
+            "الإعاقات التي تتطلب رعاية خاصة",
+            "اعاقات اخرى"
+        ];
+
+
+        $this->disability_type = array_search($this->disability_type, $this->types, true) + 1;
 
     }
 
@@ -38,13 +56,16 @@ class Settings extends Component
         'same' => 'لابد ان يكون الباسورد متطابق',
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
-        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا'
+        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
+        'gt' => 'لابد ان تختار نوع الاعاقة'
     ];
 
     protected $rules = [
         'name' => ['required', 'string', 'max:50'],
         'phone' => ['required', 'string', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:8', 'max:8'],
         'address' => ['required', 'max:255'],
+        'status' => ['required', 'max:255'],
+        'disability_type' => ['required', 'gt:0'],
         'gender' => ['required']
     ];
 
@@ -67,6 +88,7 @@ class Settings extends Component
 
     public function edit()
     {
+
         $validatedata = $this->validate(
             array_merge(
                 $this->rules,
@@ -74,6 +96,12 @@ class Settings extends Component
                     'email'   => ['required', 'email', "unique:students,email," . $this->student_id],
                 ]
             )
+        );
+        $validatedata = array_merge(
+            $validatedata,
+            [
+                'disability_type' => $this->types[$this->disability_type - 1]
+            ]
         );
         if ($this->password) {
             $this->updatedPassword();

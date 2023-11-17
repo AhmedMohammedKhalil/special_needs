@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->text('image')->nullable();
             $table->string('email')->unique();
-            $table->string('phone',8)->nullable();
-            $table->string('gender')->nullable();
             $table->string('password');
             $table->timestamps();
         });

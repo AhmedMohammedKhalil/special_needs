@@ -26,7 +26,8 @@ class Add extends Component
         'same' => 'لابد ان يكون الباسورد متطابق',
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
-        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا'
+        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
+
     ];
 
     protected $rules = [

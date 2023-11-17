@@ -25,11 +25,15 @@ class Professor extends Authenticatable
 
     public function college()
     {
-        return $this->belongsTo(College::class);
+        return $this->belongsTo(College::class,'college_id');
     }
-    public function meetings()
+
+
+
+    public function students()
     {
-        return $this->hasMany(Interview::class);
+        return $this->belongsToMany(Student::class,'interviews','professor_id','student_id')
+        ->using(Interview::class)->withPivot('id','status','content','review','date')->withTimestamps();
     }
 
 }
