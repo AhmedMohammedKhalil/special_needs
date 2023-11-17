@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('status')->nullable();
             $table->text('content');
-            $table->text('details');
+            $table->text('review')->nullable();
             $table->dateTime('date');
             $table->integer('professor_id')->unsigned();
             $table->foreign('professor_id')

@@ -12,11 +12,11 @@
 
     <div class="section-first bg-background-1"
     data-vidbg-bg="mp4: assets/video/300052515.mp4, webm: assets/video/300052515.mp4, poster: assets/video/video-img.jpg"
-    data-vidbg-options="loop: true, muted: true, overlay: false" style=" position: relative;height: 723px;">
+    data-vidbg-options="loop: true, muted: true, overlay: false" style=" position: relative;height: 550px;">
             <div class="vidbg-container"
-                style="position: absolute; z-index: 0; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%; background-image: none;height: 723px;background:black">
+                style="position: absolute; z-index: 0; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%; background-image: none;background:black">
                 <video autoplay="" loop="" muted=""
-                    style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: none; visibility: visible; opacity: 0.5; width: auto; height: 723px;"
+                    style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: none; visibility: visible; opacity: 0.5; width: 100%;"
                     __idm_id__="663553">
                     <source src="assets/video/300052515.mp4" type="video/mp4">
                     <source src="assets/video/300052515.mp4" type="video/webm">

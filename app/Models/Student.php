@@ -27,13 +27,13 @@ class Student extends Authenticatable
     public function colleges()
     {
         return $this->belongsToMany(College::class,'requests','student_id','college_id')
-        ->using(Request::class)->withTimestamps();
+        ->using(Request::class)->withPivot('id','acceptable', 'review','content','file','special_needs')->withTimestamps();
     }
 
     public function professors()
     {
         return $this->belongsToMany(Professor::class,'interviews','student_id','professor_id')
-        ->using(Interview::class)->withTimestamps();
+        ->using(Interview::class)->withPivot('id','status','content','review','date')->withTimestamps();
     }
 
     public function assistant () {

@@ -148,8 +148,8 @@
 
 
 
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+    <div class="form-group mx-auto w-auto">
+        <input type="submit" class="btn btn-primary d-block mx-auto" value="حفظ التغييرات">
     </div>
 
 </form>

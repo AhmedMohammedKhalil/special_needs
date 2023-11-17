@@ -61,19 +61,29 @@ Route::middleware(['auth:student'])->name('student.')->prefix('student')->group(
     Route::get('/logout', 'StudentController@logout')->name('logout');
 
     Route::prefix('/request')->name('request.')->group(function () {
-        Route::get('/index', 'RequestController@index')->name('index');
         Route::get('/create', 'RequestController@create')->name('create');
         Route::get('/show', 'RequestController@show')->name('show');
         Route::get('/edit', 'RequestController@edit')->name('edit');
+        Route::get('/showfile', 'RequestController@showFile')->name('showFile');
+        Route::get('/downloadfile', 'RequestController@downloadFile')->name('downloadFile');
         Route::delete('/delete', 'RequestController@delete')->name('delete');
+
 
     });
 
     Route::prefix('/interview')->name('interview.')->group(function () {
-        Route::get('/index', 'interviewController@index')->name('index');
         Route::get('/show', 'interviewController@show')->name('show');
         Route::get('/accept', 'interviewController@accept')->name('accept');
-        Route::get('/reject', 'interviewController@delete')->name('reject');
+        Route::get('/reject', 'interviewController@reject')->name('reject');
+
+    });
+
+
+    Route::prefix('/assistant')->name('assistant.')->group(function () {
+        Route::get('/create', 'AssistantController@create')->name('create');
+        Route::get('/edit', 'AssistantController@edit')->name('edit');
+        Route::delete('/delete', 'AssistantController@delete')->name('delete');
+
 
     });
 });

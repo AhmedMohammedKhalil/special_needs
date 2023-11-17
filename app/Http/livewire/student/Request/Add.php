@@ -6,6 +6,7 @@ use App\Models\College;
 use App\Models\Student;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 
@@ -45,23 +46,23 @@ class Add extends Component
     {
         $validatedata = $this->validate();
         if (!$this->file)
-            $this->request = $this->student->colleges()->attach($this->college_id,$validatedata);
+            $this->student->colleges()->attach($this->college_id,$validatedata);
         if ($this->file) {
             $this->updatedfile();
             $filename = $this->file->getClientOriginalName();
-            $this->request = $this->student->colleges()->attach($this->college_id,array_merge($validatedata, ['file' => $filename]));
-
-            // $dir = public_path('assets/files/data/requests/' . $college->id);
-            // if (file_exists($dir))
-            //     File::deleteDirectories($dir);
-            // else
-            //     mkdir($dir);
-            // $this->file->storeAs('colleges/' . $college->id, $filename);
-            // File::deleteDirectory(public_path('assets/files/data/livewire-tmp'));
+            $this->student->colleges()->attach($this->college_id,array_merge($validatedata, ['file' => $filename]));
+            $this->request = $this->student->colleges()->where('colleges.id', $this->college_id)->orderBy('pivot_created_at','desc')->first()->pivot;
+            $dir = public_path('assets/images/data/requests/' . $this->request->id);
+            if (file_exists($dir))
+                File::deleteDirectories($dir);
+            else
+                mkdir($dir);
+            $this->file->storeAs('requests/' . $this->request->id, $filename);
+            File::deleteDirectory(public_path('assets/images/data/livewire-tmp'));
         }
-        dd($this->request);
+
         session()->flash('message', "تم إتمام العملية بنجاح");
-        return redirect()->route('student.request.index');
+        return redirect()->route('student.profile',['tab' => 'requests']);
     }
     public function render()
     {

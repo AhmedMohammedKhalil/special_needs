@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class Interview extends Pivot
 {
     use HasFactory;
-
+    public $table = "interviews";
     protected $fillable = [
-        'status','content','details','date','professor_id','student_id'
+        'status','content','review','date','professor_id','student_id'
     ];
 
 
@@ -19,12 +19,12 @@ class Interview extends Pivot
 
 
 
-    // public function student()
-    // {
-    //     return $this->belongsTo(Student::class);
-    // }
-    // public function professor()
-    // {
-    //     return $this->belongsTo(Professor::class);
-    // }
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+    public function professor()
+    {
+        return $this->belongsTo(Professor::class);
+    }
 }

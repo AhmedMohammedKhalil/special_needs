@@ -37,10 +37,10 @@
                 <label class="form-label mb-0">ارفع ملف</label>
             </div>
             <div class="col-md-8">
-                <div class="input-group file-browser">
-                    <input type="text" name="text" class="form-control bg-transparent border-end-0 browse-file valid"
+                <div class="input-group file-browser d-flex">
+                    <input type="text" name="text" class="form-control bg-transparent border-end-0 browse-file valid w-auto"
                         placeholder="إرفع ملف" readonly="" aria-invalid="false">
-                    <label class="input-group-btn">
+                    <label class="input-group-btn mb-0">
                         <span class="btn btn-primary br-ts-0 br-bs-0">إرفع <input type="file" wire:model.lazy='file' name="file"
                                 style="display: none;">
                         </span>
@@ -53,7 +53,7 @@
 
 
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="إرسال الطلب">
+        <input type="submit" class="btn btn-primary w-auto m-auto d-block" value="إرسال الطلب">
     </div>
 
 </form>

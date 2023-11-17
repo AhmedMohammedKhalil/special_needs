@@ -9,11 +9,11 @@
 @section('content')
 <hr>
 <div class="row" style="min-height: calc(53vh - 6px)">
-    <div class="col-lg-5 col-xl-5 col-md-6 d-block mx-auto">
+    <div class="col-lg-8 col-xl-8 col-md-8 d-block mx-auto">
         <div class="card">
             <div class="card-body p-6">
                 <div class="mb-6">
-                    <h5 class="fs-25 font-weight-semibold">طلب الحاق فى الكلية</h5>
+                    <h5 class="fs-25 font-weight-semibold text-center">طلب الحاق فى الكلية</h5>
                 </div>
                 <div class="single-page customerpage">
                     <div class="wrapper wrapper2 box-shadow-0">

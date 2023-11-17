@@ -22,7 +22,7 @@ class College extends Model
     public function students()
     {
         return $this->belongsToMany(Student::class,'requests','college_id','student_id')
-        ->using(Request::class)->withTimestamps();
+        ->using(Request::class)->withPivot('id','acceptable', 'review','content','file','special_needs')->withTimestamps();
     }
 
 }
