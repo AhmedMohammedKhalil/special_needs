@@ -10,7 +10,7 @@
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
-                <label class="form-label mb-0" id="examplenameInputname2"> تعديل بيانات المقابلة :</label>
+                <label class="form-label mb-0" id="examplenameInputname2"> محتوى المقابلة :</label>
             </div>
             <div class="col-md-8">
                 <textarea class="form-control form-text" name="content" id="content" rows="6" wire:model.lazy='content'
@@ -23,7 +23,7 @@
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
-                <label class="form-label mb-0" id="examplenameInputname2">التاريخ :</label>
+                <label class="form-label mb-0" id="examplenameInputname2">التاريخ والوقت :</label>
             </div>
             <div class="col-md-8">
                 <input type="datetime-local" name="date" wire:model.lazy='date' class="form-control form-text">

@@ -22,7 +22,9 @@ class Accept extends Component
     }
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
-        'max'=>'لابد ان تكون المحتوى اصغر من 1000 كلمة'
+        'max'=>'لابد ان تكون المحتوى اصغر من 1000 كلمة',
+        "after_or_equal" => 'لابد ان يكون التاريخ والوقت الان او بعد حين'
+
     ];
 
     protected $rules = [
@@ -32,8 +34,12 @@ class Accept extends Component
 
     public function add()
     {
-        
-        $validatedata = $this->validate();
+
+        $validatedata = $this->validate(
+            array_merge($this->rules,
+                ['date' => ['required','after_or_equal:'.date('Y-m-d h:i:s')]]
+            )
+        );
         $this->acceptable = 'تمت الموافقة';
         $this->professor->students()->attach($this->student_id,$validatedata);
         $this->request->update(['acceptable'=> $this->acceptable]);

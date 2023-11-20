@@ -22,18 +22,24 @@ class Edit extends Component
     }
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
-        'max'=>'لابد ان تكون المحتوى اصغر من 1000 كلمة'
+        'max'=>'لابد ان تكون المحتوى اصغر من 1000 كلمة',
+        "after_or_equal" => 'لابد ان يكون التاريخ والوقت الان او بعد حين'
     ];
 
     protected $rules = [
         'content' => ['required', 'max:1000'],
-        'date' => ['required']
-      //  'date' => ['required', 'date_format:Y-m-d','after_or_equal:'.date('Y-m-d')],
+        'date' => ['required'],
     ];
+
 
     public function edit()
     {
-        $validatedata = $this->validate();
+
+        $validatedata = $this->validate(
+            array_merge($this->rules,
+                ['date' => ['required','after_or_equal:'.date('Y-m-d h:i:s')]]
+            )
+        );
         $this->interview->update($validatedata);
         session()->flash('message', "تم إتمام العملية بنجاح");
         return redirect()->route('professor.profile',['tab' => 'interviews']);
