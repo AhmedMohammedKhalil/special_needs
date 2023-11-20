@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\College;
 use App\Models\Professor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,8 @@ class ProfessorController extends Controller
     public function edit(Request $r)
     {   
         $professor = Professor::whereId($r->id)->first();
-        return view('admins.professors.edit', compact('professor'));
+        $colleges = College::all();
+        return view('admins.professors.edit', compact('professor','colleges'));
     }
 
     public function delete(Request $r)
@@ -40,8 +42,12 @@ class ProfessorController extends Controller
         return view('admins.dashboard',compact('page_name','professor_count'));
     }
 
-    public function profile() {
-        return view('professors.profile',['page_name' => 'البروفايل']);
+    public function profile(Request $r) {
+        $page_name = 'البروفايل';
+        if(isset($r)) {
+            $tab = $r->tab ?? 'profile';
+        }
+        return view('professors.profile',compact('page_name','tab'));
     }
 
     public function settings() {

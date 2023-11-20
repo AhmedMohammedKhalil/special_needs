@@ -20,7 +20,7 @@
                         <h3 class="card-title">تعديل عضو هيئة التدريس</h3>
                     </div>
                     <div class="card-body">
-                        @livewire('admin.professor.edit', ['professor'=>$professor])
+                        @livewire('admin.professor.edit', ['professor'=>$professor,'colleges'=>$colleges])
                     </div>
                 </div>
             </div>

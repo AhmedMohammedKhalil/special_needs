@@ -46,6 +46,16 @@
                             class="side-menu__label">الكليات</span></a>
                 </li>
                 <li>
+                    <a class="side-menu__item @if(Request::is('*request*')) active @endif"
+                        href="{{route('admin.request.index')}}"><i class="side-menu__icon fe fe-layers"></i><span
+                            class="side-menu__label">الطلبات</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*interview*')) active @endif"
+                        href="{{route('admin.interview.index')}}"><i class="side-menu__icon fe fe-layers"></i><span
+                            class="side-menu__label">المقابلات</span></a>
+                </li>
+                <li>
                     <a class="side-menu__item @if(Request::is('*profile*')) active @endif"
                         href="{{route('admin.profile')}}"><i class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">الصفحة الشخصية</span></a>

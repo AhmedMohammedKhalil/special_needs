@@ -40,21 +40,7 @@
                         href="{{route('professor.profile')}}"><i class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">الصفحة الشخصية</span></a>
                 </li>
-                <li>
-                    <a class="side-menu__item @if(Request::is('*colleges*')) active @endif"
-                        href="{{route('professor.colleges')}}"><i class="side-menu__icon fe fe-user"></i><span
-                            class="side-menu__label">الكليات</span></a>
-                </li>
-                <li>
-                    <a class="side-menu__item @if(Request::is('*requests*')) active @endif"
-                        href="{{route('professor.requests')}}"><i class="side-menu__icon fe fe-user"></i><span
-                            class="side-menu__label">الطلبات</span></a>
-                </li>
-                <li>
-                    <a class="side-menu__item @if(Request::is('*interviews*')) active @endif"
-                        href="{{route('professor.interviews.show')}}"><i class="side-menu__icon fe fe-user"></i><span
-                            class="side-menu__label">المقابلات</span></a>
-                </li>
+
                 <li>
                     <a class="side-menu__item @if(Request::is('*settings*')) active @endif"
                         href="{{route('professor.settings')}}"><i class="side-menu__icon fe fe-settings"></i><span

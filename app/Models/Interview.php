@@ -16,7 +16,9 @@ class Interview extends Pivot
 
 
     public $incrementing = true;
-
+    // protected $casts=[
+    //     'date'=> 'datetime:Y-m-d h:i:s',
+    // ];
 
 
     public function student()
@@ -27,4 +29,5 @@ class Interview extends Pivot
     {
         return $this->belongsTo(Professor::class);
     }
+
 }

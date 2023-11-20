@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('description');
             $table->text('keywords');
             $table->text('image');
-            $table->text('keywords');
             $table->timestamps();
         });
     }

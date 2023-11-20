@@ -14,17 +14,18 @@ use Livewire\Component;
 class Edit extends Component
 {
     use WithFileUploads;
-    public $name, $email,$gender,$phone,$image, $password, $confirm_password, $professor,$professor_id;
+    public $name, $email,$gender,$phone,$image, $password, $confirm_password, $professor,$professor_id,$college_id,$colleges;
 
 
-    public function mount($professor)
+    public function mount($professor ,$colleges)
     {
         $this->professor_id = $professor->id;
         $this->name = $professor->name;
         $this->email = $professor->email;
         $this->gender = $professor->gender;
         $this->phone = $professor->phone;
-
+        $this->college_id = $professor->college_id;
+        $this->colleges = $colleges;
     }
 
 
@@ -37,13 +38,16 @@ class Edit extends Component
         'same' => 'لابد ان يكون الباسورد متطابق',
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
-        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا'
+        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
+        'college_id.gt' => 'لابد ان يتم الاختيار الكلية'
+
     ];
 
     protected $rules = [
         'name' => ['required', 'string', 'max:50'],
         'phone' => ['required', 'string', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:8', 'max:8'],
-        'gender' => ['required']
+        'gender' => ['required'],
+        'college_id' => ['required','gt:0']
     ];
 
     public function updatedImage()

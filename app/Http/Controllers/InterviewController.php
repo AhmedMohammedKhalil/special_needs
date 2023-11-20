@@ -25,7 +25,8 @@ class InterviewController extends Controller
     }
 
     public function edit(Request $r) {
-
+        $interview_id =$r->id;
+        return view("professors.interviews.edit", compact("interview_id"));
     }
 
 
@@ -41,4 +42,15 @@ class InterviewController extends Controller
         return view('students.interviews.reject', compact('interview_id'));
     }
 
+    public function delete(Request $r) {
+        $interview=Interview::find($r->id);
+        $interview->delete();
+        return redirect()->route('professor.profile',['tab' => 'interviews']);
+    }
+
+    public function index()
+    {
+        $interviews = Interview::all();
+        return view('admins.interviews.index', compact('interviews'));
+    }
 }

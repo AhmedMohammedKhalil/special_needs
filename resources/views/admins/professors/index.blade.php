@@ -58,7 +58,7 @@
                                         data-bs-toggle="tooltip" data-bs-original-title="تعديل"
                                         href="{{ route('admin.professor.edit',['id'=>$prof->id]) }}"><i
                                             class="fe fe-edit-2 fs-16"></i></a>
-                                     @if ($professors->count() > 1 && $prof->meetings->count()==0)
+                                     @if ($prof->college->professors->count() > 1 && $prof->students->count()==0)
                                     <form action="{{  route('admin.professor.delete',['id'=>$prof->id])  }}" method="post" class="d-inline-block">
                                         @method('delete')
                                         @csrf

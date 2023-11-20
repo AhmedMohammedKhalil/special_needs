@@ -72,7 +72,7 @@
                                         href="{{ route('admin.college.show',['id'=>$c->id]) }}"><i
                                             class="fe fe-eye fs-16"></i></a>
 
-                                    @if ($c->professors->count()==0 && $c->requests->count()==0 )
+                                    @if (isset($c->professors) && $c->professors->count()==0 && isset($c->requests) && $c->requests->count()==0 )
                                     <form action="{{  route('admin.college.delete',['id'=>$c->id])  }}" method="post" class="d-inline-block">
                                         @method('delete')
                                         @csrf

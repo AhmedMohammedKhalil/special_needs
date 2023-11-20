@@ -60,5 +60,19 @@ class RequestController extends Controller
 
     }
 
+    public function accept(Request $r) {
+        $request_id =$r->id;
+        return view("professors.requests.accept", compact("request_id"));
+    }
+    public function reject(Request $r) {
+        $request_id =$r->id;
+        return view("professors.requests.reject", compact("request_id"));
 
+    }
+
+    public function index()
+    {
+        $requests = RequestModel::all();
+        return view('admins.requests.index', compact('requests'));
+    }
 }
