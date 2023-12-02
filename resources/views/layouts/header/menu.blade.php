@@ -29,7 +29,7 @@
                     <span><a class="btn btn-primary" href="{{ route('student.login_register') }}">الطالب<i class="fe fe-user me-1"></i></a></span>
                 </li>
                 <li aria-haspopup="true" class="p-0 mt-1 ms-3">
-                    <span><a class="btn btn-primary" href="{{ route('professor.login') }}">عضو هيئة التدريس<i class="fe fe-user me-1"></i></a></span>
+                    <span><a class="btn btn-primary" href="{{ route('professor.login') }}">عضو الهيئة التدريسية<i class="fe fe-user me-1"></i></a></span>
                 </li>
 
                 @endunless
