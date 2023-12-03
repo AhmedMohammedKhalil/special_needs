@@ -91,11 +91,10 @@
                                             </div>
                                             <p class="fs-14">
                                                 @if(strlen($college->description) > 40)
-                                                {!! substr(nl2br($college->description),0,40).'...' !!}
+                                                {!! substr(nl2br($college->description),0,30) !!}...
                                                 @else
                                                 {!! nl2br($college->description) !!}
                                                 @endif
-                                                <h3>{{ $college->location }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -126,12 +125,11 @@
                                     </div>
                                     <p class="fs-14">
                                         @if(strlen($college->description) > 40)
-                                        {!! substr(nl2br($college->description),0,40).'...' !!}
+                                        {!! substr(nl2br($college->description),0,30) !!}...
                                         @else
                                         {!! nl2br($college->description) !!}
                                         @endif
                                         </p>
-                                    <h3>{{ $college->location }}</h3>
                                 </div>
                             </div>
                         </div>

@@ -52,7 +52,7 @@
                     {{-- foreach service --}}
                     <div class="section-title d-md-flex pb-0">
                         <div>
-                            <h2>اعضاء هيئة التدريس</h2>
+                            <h2>اعضاء الهيئة التدريسية</h2>
                         </div>
                     </div>
                     <div class="col-lg-12">

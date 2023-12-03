@@ -13,7 +13,6 @@
                     </div>
                     <div class="user-wrap">
                         <h3>{{$college->name}}</h3>
-                        <h3>{{$college->location}}</h3>
                         <p class="text-default mb-3">{{nl2br($college->description)}}</p>
                     </div>
                     <div class="btn-list">

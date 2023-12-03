@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @push('title')
 <div class="text-center text-white py-7">
-    <h1 class="">عضو هيئة التدريس</h1>
+    <h1 class="">عضو الهيئة التدريسية</h1>
 </div>
 @endpush
 
