@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Galary extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+    'image', 
+    ];
 }

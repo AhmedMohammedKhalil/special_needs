@@ -13,8 +13,53 @@ class GalarySeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('about_sliders')->insert([
-            'image' => 'نتعامل مع بعضنا ومع الذين نخدمهم بكرامة وثقة ورغبة حقيقية في فهم قيمة الآخرين ووجهات نظرهم وظروفهم، بما يخلق بيئة تعز ز العلاقات الإيجابية والدعم المتبادل',
+        DB::table('galaries')->insert([
+            'image'=>'image1.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image2.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image3.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image4.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image5.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image6.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image7.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image8.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image9.jpeg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('galaries')->insert([
+            'image'=>'image10.jpeg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

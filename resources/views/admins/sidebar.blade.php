@@ -56,6 +56,27 @@
                             class="side-menu__label">المقابلات</span></a>
                 </li>
                 <li>
+                    <a class="side-menu__item @if(Request::is('*video*')) active @endif"
+                        href="{{route('admin.video.index')}}"><i class="side-menu__icon fe fe-layers"></i><span
+                            class="side-menu__label">الواجهة الرئيسية</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*galary*')) active @endif"
+                        href="{{route('admin.galary.index')}}"><i class="side-menu__icon fe fe-layers"></i><span
+                            class="side-menu__label">معرض الصور</span></a>
+                </li>
+
+                <li>
+                    <a class="side-menu__item @if(Request::is('*about*')) active @endif"
+                        href="{{route('admin.about.index')}}"><i class="side-menu__icon fe fe-layers"></i><span
+                            class="side-menu__label"> من نحن</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*aboutslider*')) active @endif"
+                        href="{{route('admin.aboutslider.index')}}"><i class="side-menu__icon fe fe-layers"></i><span
+                            class="side-menu__label">قيمنا</span></a>
+                </li>
+                <li>
                     <a class="side-menu__item @if(Request::is('*profile*')) active @endif"
                         href="{{route('admin.profile')}}"><i class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">الصفحة الشخصية</span></a>
