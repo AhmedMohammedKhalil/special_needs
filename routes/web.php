@@ -49,6 +49,32 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::prefix('/request')->name('request.')->group(function () {
         Route::get('/index', 'RequestController@index')->name('index');
     });
+
+    Route::prefix('/video')->name('video.')->group(function () {
+        Route::get('/index', 'VideoController@index')->name('index');
+        Route::get('/edit', 'VideoController@edit')->name('edit');
+    });
+
+    Route::prefix('/abouts')->name('about.')->group(function () {
+        Route::get('/index', 'AboutController@index')->name('index');
+        Route::get('/edit', 'AboutController@edit')->name('edit');
+        Route::get('/show', 'AboutController@show')->name('show');
+
+    });
+
+    Route::prefix('/galary')->name('galary.')->group(function () {
+        Route::get('/index', 'GalaryController@index')->name('index');
+        Route::get('/edit', 'GalaryController@edit')->name('edit');
+        Route::delete('/delete', 'GalaryController@delete')->name('delete');
+    });
+
+    Route::prefix('/aboutslider')->name('aboutslider.')->group(function () {
+        Route::get('/index', 'AboutSliderController@index')->name('index');
+        Route::get('/create', 'AboutSliderController@create')->name('create');
+        Route::get('/edit', 'AboutSliderController@edit')->name('edit');
+        Route::get('/show', 'AboutSliderController@show')->name('show');
+        Route::delete('/delete', 'AboutSliderController@delete')->name('delete');
+    });
 });
 
 Route::middleware(['auth:professor'])->name('professor.')->prefix('professor')->group(function () {

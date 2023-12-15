@@ -12,6 +12,6 @@ class RequestSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+
     }
 }

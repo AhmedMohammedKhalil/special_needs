@@ -84,7 +84,8 @@
 
 
     <!-- Back to top -->
-    <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <a href="#top" style=" left: unset !important;
+            right: 20px !important;" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
     <!-- JQuery js-->
