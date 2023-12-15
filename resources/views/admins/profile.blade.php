@@ -20,6 +20,8 @@
                 <h3 class="card-title mb-3 font-weight-bold">المعلومات الشخصية</h3>
             </div>
             <ul class="usertab-list">
+                <li><a href="javascript:void(0)"><span class="font-weight-bold text-default-dark float-start">الرقم المدنى :
+                </span> <span class="user-1 ms-2"> {{auth('admin')->user()->civil_number}}</span></a></li>
                 <li><a href="javascript:void(0)"><span class="font-weight-bold text-default-dark float-start">الإسم :
                         </span> <span class="user-1 ms-2"> {{auth('admin')->user()->name}}</span></a></li>
                 <li><a href="javascript:void(0)"><span class="font-weight-bold text-default-dark float-start">الإيميل :

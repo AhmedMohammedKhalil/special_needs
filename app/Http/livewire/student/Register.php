@@ -18,7 +18,7 @@ class Register extends Component
         'phone' => ['required', 'string','regex:/^([0-9\s\-\+\(\)]*)$/','min:8','max:8'],
         'email'   => 'required|email|unique:students,email',
         'password' => ['required', 'string', 'min:8'],
-        'civil_number'   => 'required|unique:students,civil_number|max:12|min:12',
+        'civil_number'   => 'required|unique:students,civil_number|max:12|min:12|regex:/^([0-9\s\-\+\(\)]*)$/',
         'confirm_password' => ['required', 'string', 'min:8','same:password'],
         'gender' => ['required'],
         'disability_type' => ['required','gt:0'],
@@ -30,10 +30,10 @@ class Register extends Component
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
-        'email' => 'هذا الإيميل غير صحيح',
+        'email' => 'هذا البريد الإلكترونى غير صحيح',
         'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
-        'email.unique' => 'هذا الايميل مسجل فى الموقع',
-        'same' => 'لابد ان يكون الباسورد متطابق',
+        'email.unique' => 'هذا البريد الإلكترونى مسجل فى الموقع',
+        'same' => 'لابد ان يكون كلمة السر متطابق',
         'image' => 'لابد ان يكون المف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
         'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
@@ -57,11 +57,11 @@ class Register extends Component
             ]
         );
         Student::Create($data);
-        if(Auth::guard('student')->attempt(['civil_number'=>$this->civil_number,'password'=>$this->password])){
+        if(Auth::guard('student')->attempt(['email'=>$this->email,'password'=>$this->password])){
             session()->flash('message', "تم دخولك ينجاح");
             return redirect()->route('home');
         }else{
-            session()->flash('error', 'هناك خطا فى الرقم المدنى او كلمة المرور');
+            session()->flash('error', 'هناك خطا فى البريد الإلكترونى او كلمة المرور');
         }
     }
 

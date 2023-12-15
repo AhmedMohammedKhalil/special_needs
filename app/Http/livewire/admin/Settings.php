@@ -30,10 +30,10 @@ class Settings extends Component
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
-        'email' => 'هذا الإيميل غير صحيح',
+        'email' => 'هذا البريد الإلكترونى غير صحيح',
         'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
-        'email.unique' => 'هذا الايميل مسجل فى الموقع',
-        'same' => 'لابد ان يكون الباسورد متطابق',
+        'email.unique' => 'هذا البريد الإلكترونى مسجل فى الموقع',
+        'same' => 'لابد ان يكون كلمة السر متطابق',
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
         'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
@@ -70,7 +70,7 @@ class Settings extends Component
                 $this->rules,
                 [
                     'email'   => ['required', 'email', "unique:admins,email," . $this->admin_id],
-                    'civil_number'   => ['required', 'min:12','max:12', "unique:admins,civil_number," . $this->admin_id],
+                    'civil_number'   => ['required', 'min:12','max:12','regex:/^([0-9\s\-\+\(\)]*)$/', "unique:admins,civil_number," . $this->admin_id],
 
                 ]
             )

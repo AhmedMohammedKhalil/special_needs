@@ -5,21 +5,22 @@
         {{ session('error') }}
     </div>
     @endif
+    <div class="civil_number">
+        <label>الرقم المدنى</label>
+        <input type="text" name="civil_number" wire:model.lazy='civil_number' class="border-dark" style="direction: ltr">
+        @error('civil_number') <span class="text-danger error">{{ $message }}</span>@enderror
+    </div>
     <div class="name">
         <label>الإسم</label>
         <input type="text" wire:model.lazy='name' name="name" class="border-dark">
         @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
     <div class="email">
-        <label>الإيميل</label>
+        <label>البريد الإلكترونى</label>
         <input type="email" name="email" wire:model.lazy='email' class="border-dark" style="direction: ltr">
         @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
-    <div class="civil_number">
-        <label>الرقم المدنى</label>
-        <input type="text" name="civil_number" wire:model.lazy='civil_number' class="border-dark" style="direction: ltr">
-        @error('civil_number') <span class="text-danger error">{{ $message }}</span>@enderror
-    </div>
+
     <div class="phone">
         <label>الموبايل</label>
         <input type="text" name="phone" wire:model.lazy='phone' class="border-dark">

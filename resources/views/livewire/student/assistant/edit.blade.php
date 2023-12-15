@@ -20,7 +20,7 @@
 <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
-                <label class="form-label mb-0" id="examplenameInputname2">الموبايل :</label>
+                <label class="form-label mb-0" id="examplenameInputname2">رقم الهاتف :</label>
             </div>
             <div class="col-md-8">
                 <input type="text" name="phone" wire:model.lazy='phone' class="form-control form-text" style="direction: ltr">

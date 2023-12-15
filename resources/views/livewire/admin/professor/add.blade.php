@@ -7,28 +7,6 @@
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
-                <label class="form-label mb-0" id="examplenameInputname2">الإسم :</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="name" wire:model.lazy='name' class="form-control form-text">
-                @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
-            </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div class="row">
-            <div class="col-md-3 d-flex align-items-center">
-                <label class="form-label mb-0" id="examplenameInputname2">الإيميل :</label>
-            </div>
-            <div class="col-md-8">
-                <input type="email" name="email" wire:model.lazy='email' class="form-control form-text" style="direction: ltr">
-                @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
-            </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div class="row">
-            <div class="col-md-3 d-flex align-items-center">
                 <label class="form-label mb-0" id="examplenameInputname2">الرقم المدنى :</label>
             </div>
             <div class="col-md-8">
@@ -40,7 +18,30 @@
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
-                <label class="form-label mb-0" id="examplenameInputname2">الموبايل :</label>
+                <label class="form-label mb-0" id="examplenameInputname2">الإسم :</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="name" wire:model.lazy='name' class="form-control form-text">
+                @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
+                <label class="form-label mb-0" id="examplenameInputname2">البريد الإلكترونى :</label>
+            </div>
+            <div class="col-md-8">
+                <input type="email" name="email" wire:model.lazy='email' class="form-control form-text" style="direction: ltr">
+                @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
+                <label class="form-label mb-0" id="examplenameInputname2">رقم الهاتف :</label>
             </div>
             <div class="col-md-8">
                 <input type="text" name="phone" wire:model.lazy='phone' class="form-control form-text" style="direction: ltr">

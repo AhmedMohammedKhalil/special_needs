@@ -60,6 +60,8 @@
                             <h3 class="card-title mb-3 font-weight-bold">المعلومات الشخصية</h3>
                         </div>
                         <ul class="usertab-list">
+                            <li><span class="font-weight-bold text-default-dark float-start">الرقم المدنى :
+                            </span> <span class="user-1 ms-2"> {{auth('student')->user()->civil_number}}</span></li>
                             <li><span class="font-weight-bold text-default-dark float-start">الإسم :
                                     </span> <span class="user-1 ms-2"> {{auth('student')->user()->name}}</span></li>
                             <li><span class="font-weight-bold text-default-dark float-start">الإيميل :

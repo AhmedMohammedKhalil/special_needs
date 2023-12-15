@@ -8,20 +8,19 @@ use Livewire\Component;
 class Login extends Component
 {
 
-    public $civil_number;
+    public $email;
     public $password;
 
     protected $rules = [
-        'civil_number'   => 'required|exists:professors,civil_number|max:12|min:12',
+        'email'   => 'required|email|exists:admins,email',
         'password' => 'required|min:8'
     ];
 
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
-        'password.min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
-        'exists' => 'هذا الرقم المدنى غير مسجل فى الموقع',
-        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
-        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
+        'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
+        'email' => 'هذا البريد الإلكترونى غير صحيح',
+        'exists' => 'هذا البريد الإلكترونى غير مسجل فى الموقع'
     ];
 
     public function login(){
