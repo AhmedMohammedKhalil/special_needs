@@ -11,15 +11,15 @@
 @section('landing')
 
     <div class="section-first bg-background-1"
-    data-vidbg-bg="mp4: assets/video/300052515.mp4, webm: assets/video/300052515.mp4, poster: assets/video/video-img.jpg"
+    data-vidbg-bg="mp4: {{ asset('assets/images/data/video/'.$slider->video) }}, webm: {{ asset('assets/images/data/video/'.$slider->video) }}"
     data-vidbg-options="loop: true, muted: true, overlay: false" style=" position: relative;height: 550px;">
             <div class="vidbg-container"
                 style="position: absolute; z-index: 0; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%; background-image: none;background:black">
                 <video autoplay="" loop="" muted=""
                     style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: none; visibility: visible; opacity: 0.5; width: 100%;"
                     __idm_id__="663553">
-                    <source src="assets/video/300052515.mp4" type="video/mp4">
-                    <source src="assets/video/300052515.mp4" type="video/webm">
+                    <source src="{{ asset('assets/images/data/video/'.$slider->video) }}" type="video/mp4">
+                    <source src="{{ asset('assets/images/data/video/'.$slider->video) }}" type="video/webm">
                 </video>
             </div>
         <!--Topbar-->
@@ -46,16 +46,15 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="section-title">
-                        <h2 class="leading-normal">من نحن</h2>
-                        <p class="fs-18">أنشأ هذا الموقع لرعاية المعوقين لتقدم خدماتها للأبناء ذوي الإعاقة وتحمل العبء عن ذويهم وتخفف معاناتهم وترشدهم إلى الطريق الصحيح لتعليم أبنائهم ودمجهم في المجتمع من خلال تقديمهم الى الكليات والسير نحو مستقبل افضل.</p>
+                        <h2 class="leading-normal">{{ $about->title }}</h2>
                         <p class="fs-18">
-                            تأسس الموقع على أيدي مجموعة من الطلبة المتطوعين المخلصين الذين سخرهم الله عز وجل لخدمة هذه الفئة عندما لم يكن بدولة الكويت من يهتم بهم سوى دور الرعاية الاجتماعية التابعة لوزارة الشؤون الاجتماعية والعمل.
+                            {!! nl2br($about->content) !!}
                         </p>
 
                     </div> <a class="btn btn-primary px-6 fs-16" href="{{ route('aboutus') }}">المزيد</a>
                 </div>
                 <div class="col-lg-5 mt-5 mt-lg-0">
-                    <img src="{{ asset('assets/images/banners/home-aboutus.jpeg') }}" alt="home-aboutus" style="box-shadow:#21206061 14px 14px 14px;border-radius:20px">
+                    <img src="{{ asset('assets/images/data/aboutus/'.$about->image) }}" alt="home-aboutus" style="box-shadow:#21206061 14px 14px 14px;border-radius:20px">
                 </div>
             </div>
         </div>
@@ -151,23 +150,20 @@
             </div>
             <div class="col-md-12">
                 <div class="owl-carousel classes-carousel-1">
-                    @for ($i=1;$i<10;$i++)
+                    @foreach($galleries as $gallery)
                         <div class="item">
                             <div class="card mb-0">
                                 <div class="item-card">
                                     <div class="item-card-desc">
                                         <a href="javascript:void(0)"></a>
                                         <div class="item-card-img" style="height: 400px">
-                                            <img src="{{ asset('assets/images/galleries/image'.$i.'.jpeg') }}" alt="{{'img-'.$i }}" class="" style="height:100%">
+                                            <img src="{{ asset('assets/images/data/galaries/'.$gallery->id.'/'.$gallery->image) }}" alt="{{'img-'.$gallery->id }}" class="" style="height:100%">
                                         </div>
-                                        {{-- <div class="item-card-text">
-                                            <h4 class="mb-0">Data Science</h4>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>

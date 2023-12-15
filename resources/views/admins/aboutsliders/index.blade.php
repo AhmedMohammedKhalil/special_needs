@@ -23,7 +23,7 @@
                     <table class="data-table-example table table-bordered table-hover mb-0 text-nowrap">
                         <thead>
                             <tr>
-                 
+
                                 <th> العنوان</th>
                                 <th>المحتوى</th>
                                 <th>إعدادات</th>
@@ -32,7 +32,7 @@
                         <tbody>
                             @foreach ($aboutsliders as $c)
                             <tr id="tr_{{$c->id}}">
-                             
+
                                 <td>
                                     <div class="media mt-0 mb-0">
                                         <div class="media-body">
@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                
+
 
                                 <td style="text-wrap: wrap;">
                                     <div class="media mt-0 mb-0">
@@ -62,18 +62,19 @@
                                         data-bs-toggle="tooltip" data-bs-original-title="تعديل"
                                         href="{{ route('admin.aboutslider.edit',['id'=>$c->id]) }}"><i
                                             class="fe fe-edit-2 fs-16"></i></a>
-                                    
+
                                     <a class="btn btn-outline-light btn-sm waves-effect waves-light"
                                         data-bs-toggle="tooltip" data-bs-original-title="عرض"
                                         href="{{ route('admin.aboutslider.show',['id'=>$c->id]) }}"><i
                                             class="fe fe-eye fs-16"></i></a>
-                                    
-                                    <form action="{{  route('admin.aboutslider.delete',['id'=>$c->id])  }}" method="post" class="d-inline-block">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-outline-light btn-sm waves-effect waves-light"
-                                        data-bs-toggle="tooltip" data-bs-original-title="حذف" type="submit"><i class="fe fe-trash fs-16"></i></button>
-                                    </form>
+                                    @if(count($aboutsliders) > 3)
+                                        <form action="{{  route('admin.aboutslider.delete',['id'=>$c->id])  }}" method="post" class="d-inline-block">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-outline-light btn-sm waves-effect waves-light"
+                                            data-bs-toggle="tooltip" data-bs-original-title="حذف" type="submit"><i class="fe fe-trash fs-16"></i></button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

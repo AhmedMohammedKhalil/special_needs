@@ -5,8 +5,8 @@
                 <div class="col-xl-7 col-lg-8 col-md-8 d-block mx-auto">
                     <div class="search-background bg-transparent input-field">
                         <div class="text-center text-white mb-7">
-                            <h1 class="mb-1 font-weight-semibold fs-50">{{ config('app.name') }}</h1>
-                            <h2 class="mb-1 font-weight-semibold text-white">موقعنا لمساعدة الطلاب اصحاب  القدرات الخاصة</h2>
+                            <h1 class="mb-1 font-weight-semibold fs-50">{{ $slider->title }}</h1>
+                            <h2 class="mb-1 font-weight-semibold text-white">{{ $slider->content }}</h2>
                         </div>
 
                         @stack('title')

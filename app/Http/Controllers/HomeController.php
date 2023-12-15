@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
+use App\Models\AboutSlider;
 use App\Models\College;
+use App\Models\Galary;
 use App\Models\Student;
 use App\Models\Professor;
 use App\Models\Request as RequestModel;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,15 +25,17 @@ class HomeController extends Controller
     {
         $colleges = College::all();
         $professors = Professor::all();
-        return view('home',compact('colleges','professors'));
+        $about = About::where('type','من نحن')->first();
+        $slider = Video::Limit(1)->first();
+        $galleries = Galary::all();
+        return view('home',compact('colleges','professors','about','slider','galleries'));
     }
 
     public function aboutus()
     {
-        $professors = Professor::all();
-        $students = Student::all();
-        $colleges = College::all();
-        return view('aboutus',compact('colleges','professors','students'));
+        $abouts = About::all();
+        $aboutsliders = AboutSlider::all();
+        return view('aboutus',compact('abouts','aboutsliders'));
     }
 
     public function search()

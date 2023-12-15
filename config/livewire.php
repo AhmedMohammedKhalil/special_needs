@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/handicapped/public',
+    'asset_url' => 'http://localhost/special_needs/public',
 
     /*
     |--------------------------------------------------------------------------
