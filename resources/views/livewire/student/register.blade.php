@@ -10,10 +10,15 @@
         <input type="text" wire:model.lazy='name' name="name" class="border-dark">
         @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
-    <div class="mail">
+    <div class="email">
         <label>الإيميل</label>
         <input type="email" name="email" wire:model.lazy='email' class="border-dark" style="direction: ltr">
         @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
+    </div>
+    <div class="civil_number">
+        <label>الرقم المدنى</label>
+        <input type="text" name="civil_number" wire:model.lazy='civil_number' class="border-dark" style="direction: ltr">
+        @error('civil_number') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
     <div class="phone">
         <label>الموبايل</label>
@@ -63,6 +68,7 @@
         <input type="password" name="password" class="border-dark" wire:model.lazy='password' style="direction: ltr">
         @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
+
     <div class="passwd">
         <label>أعد كتابة كلمة السر</label>
         <input type="password" name="confirm_password" class="border-dark" wire:model.lazy='confirm_password' style="direction: ltr">

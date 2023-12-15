@@ -29,6 +29,17 @@
     <div class="form-group ">
         <div class="row">
             <div class="col-md-3 d-flex align-items-center">
+                <label class="form-label mb-0" id="examplenameInputname2">الرقم المدنى :</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="civil_number" wire:model.lazy='civil_number' class="form-control form-text" style="direction: ltr">
+                @error('civil_number') <span class="text-danger error">{{ $message }}</span>@enderror
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
                 <label class="form-label mb-0" id="examplenameInputname2">الموبايل :</label>
             </div>
             <div class="col-md-8">

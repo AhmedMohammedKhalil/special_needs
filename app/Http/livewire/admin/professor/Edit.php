@@ -14,7 +14,7 @@ use Livewire\Component;
 class Edit extends Component
 {
     use WithFileUploads;
-    public $name, $email,$gender,$phone,$image, $password, $confirm_password, $professor,$professor_id,$college_id,$colleges;
+    public $name, $email,$civil_number,$gender,$phone,$image, $password, $confirm_password, $professor,$professor_id,$college_id,$colleges;
 
 
     public function mount($professor ,$colleges)
@@ -22,6 +22,7 @@ class Edit extends Component
         $this->professor_id = $professor->id;
         $this->name = $professor->name;
         $this->email = $professor->email;
+        $this->civil_number = $professor->civil_number;
         $this->gender = $professor->gender;
         $this->phone = $professor->phone;
         $this->college_id = $professor->college_id;
@@ -39,7 +40,10 @@ class Edit extends Component
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
         'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
-        'college_id.gt' => 'لابد ان يتم الاختيار الكلية'
+        'college_id.gt' => 'لابد ان يتم الاختيار الكلية',
+        'civil_number.unique' => 'هذا الرقم المدنى مسجل فى الموقع',
+        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
+        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
 
     ];
 
@@ -74,6 +78,8 @@ class Edit extends Component
                 $this->rules,
                 [
                     'email'   => ['required', 'email', "unique:professors,email," . $this->professor_id],
+                    'civil_number'   => ['required', 'min:12','max:12', "unique:professors,civil_number," . $this->professor_id],
+
                 ]
             )
         );

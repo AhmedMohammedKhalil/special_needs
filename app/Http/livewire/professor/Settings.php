@@ -14,7 +14,7 @@ use Livewire\Component;
 class Settings extends Component
 {
     use WithFileUploads;
-    public $name, $email,$gender,$phone,$image, $password, $confirm_password, $professor_id;
+    public $name,$civil_number, $email,$gender,$phone,$image, $password, $confirm_password, $professor_id;
 
 
     public function mount()
@@ -22,6 +22,7 @@ class Settings extends Component
         $this->professor_id = Auth::guard('professor')->user()->id;
         $this->name = Auth::guard('professor')->user()->name;
         $this->email = Auth::guard('professor')->user()->email;
+        $this->civil_number = Auth::guard('professor')->user()->civil_number;
         $this->gender = Auth::guard('professor')->user()->gender;
         $this->phone = Auth::guard('professor')->user()->phone;
 
@@ -33,11 +34,14 @@ class Settings extends Component
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
         'email' => 'هذا الإيميل غير صحيح',
         'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
-        'unique' => 'هذا الايميل مسجل فى الموقع',
+        'email.unique' => 'هذا الايميل مسجل فى الموقع',
         'same' => 'لابد ان يكون الباسورد متطابق',
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
-        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا'
+        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
+        'civil_number.unique' => 'هذا الرقم المدنى مسجل فى الموقع',
+        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
+        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
     ];
 
     protected $rules = [
@@ -70,6 +74,8 @@ class Settings extends Component
                 $this->rules,
                 [
                     'email'   => ['required', 'email', "unique:professors,email," . $this->professor_id],
+                    'civil_number'   => ['required', 'min:12','max:12', "unique:professors,civil_number," . $this->professor_id],
+
                 ]
             )
         );

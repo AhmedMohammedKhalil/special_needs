@@ -24,6 +24,8 @@
                         </span> <span class="user-1 ms-2"> {{auth('admin')->user()->name}}</span></a></li>
                 <li><a href="javascript:void(0)"><span class="font-weight-bold text-default-dark float-start">الإيميل :
                         </span> <span class="user-1 ms-2"> {{auth('admin')->user()->email}}</span></a></li>
+                <li><a href="javascript:void(0)"><span class="font-weight-bold text-default-dark float-start">الرقم المدنى :
+                        </span> <span class="user-1 ms-2"> {{auth('admin')->user()->civil_number}}</span></a></li>
             </ul>
         </div>
     </div>

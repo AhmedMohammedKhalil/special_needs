@@ -14,7 +14,7 @@ use Livewire\Component;
 class Settings extends Component
 {
     use WithFileUploads;
-    public $name, $email, $image, $password, $confirm_password, $admin_id;
+    public $name, $email,$civil_number, $image, $password, $confirm_password, $admin_id;
 
 
     public function mount()
@@ -22,6 +22,8 @@ class Settings extends Component
         $this->admin_id = Auth::guard('admin')->user()->id;
         $this->name = Auth::guard('admin')->user()->name;
         $this->email = Auth::guard('admin')->user()->email;
+        $this->civil_number = Auth::guard('admin')->user()->civil_number;
+
     }
 
 
@@ -30,11 +32,14 @@ class Settings extends Component
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
         'email' => 'هذا الإيميل غير صحيح',
         'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
-        'unique' => 'هذا الايميل مسجل فى الموقع',
+        'email.unique' => 'هذا الايميل مسجل فى الموقع',
         'same' => 'لابد ان يكون الباسورد متطابق',
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
-        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا'
+        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
+        'civil_number.unique' => 'هذا الرقم المدنى مسجل فى الموقع',
+        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
+        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
     ];
 
     protected $rules = [
@@ -65,6 +70,8 @@ class Settings extends Component
                 $this->rules,
                 [
                     'email'   => ['required', 'email', "unique:admins,email," . $this->admin_id],
+                    'civil_number'   => ['required', 'min:12','max:12', "unique:admins,civil_number," . $this->admin_id],
+
                 ]
             )
         );

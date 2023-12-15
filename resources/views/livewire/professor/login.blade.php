@@ -4,10 +4,10 @@
             {{ session('error') }}
         </div>
     @endif
-    <div class="email">
-        <label>الإيميل</label>
-        <input type="email" name="email" class="border-dark" wire:model.lazy='email' style="direction: ltr">
-        @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
+    <div class="civil_number">
+        <label>الرقم المدنى</label>
+        <input type="text" name="civil_number" class="border-dark" wire:model.lazy='civil_number' style="direction: ltr">
+        @error('civil_number') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
 
     <div class="password">

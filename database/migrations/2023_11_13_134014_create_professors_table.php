@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->string('gender');
             $table->string('phone',8);
+            $table->string('civil_number',12)->unique();
             $table->integer('college_id')->unsigned();
             $table->foreign('college_id')
             ->references('id')->on('colleges')

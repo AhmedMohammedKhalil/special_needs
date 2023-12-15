@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('status');
             $table->text('address');
             $table->string('disability_type');
+            $table->string('civil_number',12)->unique();
             $table->string('gender');
             $table->string('phone',8);
             $table->string('password');

@@ -64,11 +64,13 @@
                                     </span> <span class="user-1 ms-2"> {{auth('student')->user()->name}}</span></li>
                             <li><span class="font-weight-bold text-default-dark float-start">الإيميل :
                                     </span> <span class="user-1 ms-2"> {{auth('student')->user()->email}}</span></li>
+                            <li><span class="font-weight-bold text-default-dark float-start">الرقم المدنى :
+                                    </span> <span class="user-1 ms-2"> {{auth('student')->user()->civil_number}}</span></li>
                             <li><span class="font-weight-bold text-default-dark float-start">الموبايل :
                                     </span> <span class="user-1 ms-2"> {{auth('student')->user()->phone}}</span></li>
                             <li><span class="font-weight-bold text-default-dark float-start">الجنس :
                                     </span> <span class="user-1 ms-2"> {{auth('student')->user()->gender}}</span></li>
-                                    <li><span class="font-weight-bold text-default-dark float-start">نوع الإعاقة :
+                            <li><span class="font-weight-bold text-default-dark float-start">نوع الإعاقة :
                                     </span> <span class="user-1 ms-2"> {{auth('student')->user()->disability_type}}</span></li>
                             <li><span class="font-weight-bold text-default-dark float-start">الحالة المرضية :
                             </span><p class="d-inline-block mx-2">{{ nl2br(auth('student')->user()->status) }}</p></li>

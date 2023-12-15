@@ -14,7 +14,7 @@ use Livewire\Component;
 class Settings extends Component
 {
     use WithFileUploads;
-    public $types, $name, $email,$gender,$phone,$image,$status,$disability_type, $password, $confirm_password,$address, $student_id;
+    public $types, $name,$civil_number,$email,$gender,$phone,$image,$status,$disability_type, $password, $confirm_password,$address, $student_id;
 
 
     public function mount()
@@ -22,6 +22,7 @@ class Settings extends Component
         $this->student_id = Auth::guard('student')->user()->id;
         $this->name = Auth::guard('student')->user()->name;
         $this->email = Auth::guard('student')->user()->email;
+        $this->civil_number = Auth::guard('student')->user()->civil_number;
         $this->gender = Auth::guard('student')->user()->gender;
         $this->phone = Auth::guard('student')->user()->phone;
         $this->address = Auth::guard('student')->user()->address;
@@ -52,12 +53,15 @@ class Settings extends Component
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
         'email' => 'هذا الإيميل غير صحيح',
         'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
-        'unique' => 'هذا الايميل مسجل فى الموقع',
+        'email.unique' => 'هذا الايميل مسجل فى الموقع',
         'same' => 'لابد ان يكون الباسورد متطابق',
         'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
         'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
-        'gt' => 'لابد ان تختار نوع الاعاقة'
+        'gt' => 'لابد ان تختار نوع الاعاقة',
+        'civil_number.unique' => 'هذا الرقم المدنى مسجل فى الموقع',
+        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
+        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
     ];
 
     protected $rules = [
@@ -94,6 +98,7 @@ class Settings extends Component
                 $this->rules,
                 [
                     'email'   => ['required', 'email', "unique:students,email," . $this->student_id],
+                    'civil_number'   => ['required', 'min:12','max:12', "unique:students,civil_number," . $this->student_id],
                 ]
             )
         );

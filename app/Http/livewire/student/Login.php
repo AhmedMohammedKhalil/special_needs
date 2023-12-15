@@ -8,19 +8,20 @@ use Livewire\Component;
 class Login extends Component
 {
 
-    public $email;
+    public $civil_number;
     public $password;
 
     protected $rules = [
-        'email'   => 'required|email|exists:students,email',
+        'civil_number'   => 'required|exists:students,civil_number|max:12|min:12',
         'password' => 'required|min:8'
     ];
 
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
-        'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
-        'email' => 'هذا الإيميل غير صحيح',
-        'exists' => 'هذا الايميل غير مسجل فى الموقع',
+        'password.min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
+        'exists' => 'هذا الرقم المدنى غير مسجل فى الموقع',
+        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
+        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
     ];
 
     public function login(){
@@ -30,7 +31,7 @@ class Login extends Component
             session()->flash('message', "تم دخولك ينجاح");
             return redirect()->route('home');
         }else{
-            session()->flash('error', 'هناك خطا فى الايميل او الباسورد');
+            session()->flash('error', 'هناك خطا فى الرقم المدنى او كلمة المرور');
         }
     }
 

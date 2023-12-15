@@ -43,6 +43,8 @@
                                         </span> <span class="user-1 ms-2"> {{auth('professor')->user()->name}}</span></li>
                                 <li><span class="font-weight-bold text-default-dark float-start">الإيميل :
                                         </span> <span class="user-1 ms-2"> {{auth('professor')->user()->email}}</span></li>
+                                <li><span class="font-weight-bold text-default-dark float-start">الرقم المدنى :
+                                        </span> <span class="user-1 ms-2"> {{auth('professor')->user()->civil_number}}</span></li>
                                 <li><span class="font-weight-bold text-default-dark float-start">الكلية :
                                         </span> <span class="user-1 ms-2"> {{auth('professor')->user()->college->name}}</span></li>
                                 <li><span class="font-weight-bold text-default-dark float-start">الموبايل :

@@ -10,19 +10,20 @@ class Login extends Component
 {
 
 
-    public $email;
+    public $civil_number;
     public $password;
 
     protected $rules = [
-        'email'   => 'required|email|exists:admins,email',
+        'civil_number'   => 'required|exists:admins,civil_number|max:12|min:12',
         'password' => 'required|min:8'
     ];
 
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
-        'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
-        'email' => 'هذا الإيميل غير صحيح',
-        'exists' => 'هذا الايميل غير مسجل فى الموقع'
+        'password.min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
+        'exists' => 'هذا الرقم المدنى غير مسجل فى الموقع',
+        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
+        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
     ];
 
     public function login()
@@ -33,7 +34,7 @@ class Login extends Component
             session()->flash('message', "تم تسجيل الدخول بنجاح");
             return redirect()->route('home');
         } else {
-            session()->flash('error', 'الايميل او كلمة السر غير صحيح');
+            session()->flash('error', 'الرقم المدنى او كلمة السر غير صحيح');
         }
     }
     public function render()

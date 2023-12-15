@@ -11,7 +11,7 @@ class Professor extends Authenticatable
     protected $guard = 'professor';
 
     protected $fillable = [
-        'name', 'email','phone','gender','password','image','college_id'
+        'name', 'email','phone','gender','password','image','college_id','civil_number'
     ];
 
     /**

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('image')->nullable();
             $table->string('email')->unique();
+            $table->string('civil_number',12)->unique();
             $table->string('password');
             $table->timestamps();
         });

@@ -10,7 +10,7 @@ use Livewire\Component;
 class Register extends Component
 {
 
-    public $types, $name, $email, $password,$gender,$disability_type,$status, $confirm_password, $phone, $address;
+    public $types, $name,$civil_number, $email, $password,$gender,$disability_type,$status, $confirm_password, $phone, $address;
 
 
     protected $rules = [
@@ -18,6 +18,7 @@ class Register extends Component
         'phone' => ['required', 'string','regex:/^([0-9\s\-\+\(\)]*)$/','min:8','max:8'],
         'email'   => 'required|email|unique:students,email',
         'password' => ['required', 'string', 'min:8'],
+        'civil_number'   => 'required|unique:students,civil_number|max:12|min:12',
         'confirm_password' => ['required', 'string', 'min:8','same:password'],
         'gender' => ['required'],
         'disability_type' => ['required','gt:0'],
@@ -31,7 +32,7 @@ class Register extends Component
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
         'email' => 'هذا الإيميل غير صحيح',
         'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
-        'unique' => 'هذا الايميل مسجل فى الموقع',
+        'email.unique' => 'هذا الايميل مسجل فى الموقع',
         'same' => 'لابد ان يكون الباسورد متطابق',
         'image' => 'لابد ان يكون المف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
@@ -39,6 +40,9 @@ class Register extends Component
         'regex' => 'لا بد ان يكون الحقل ارقام فقط',
         'max' => 'لابد ان يكون الحقل مكون على الاكثر من 255 خانة',
         'gt' => 'لابد ان تختار نوع الإعاقة',
+        'civil_number.unique' => 'هذا الرقم المدنى مسجل فى الموقع',
+        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
+        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم'
     ];
 
 
@@ -53,11 +57,11 @@ class Register extends Component
             ]
         );
         Student::Create($data);
-        if(Auth::guard('student')->attempt(['email'=>$this->email,'password'=>$this->password])){
+        if(Auth::guard('student')->attempt(['civil_number'=>$this->civil_number,'password'=>$this->password])){
             session()->flash('message', "تم دخولك ينجاح");
             return redirect()->route('home');
         }else{
-            session()->flash('error', 'هناك خطا فى الايميل او الباسورد');
+            session()->flash('error', 'هناك خطا فى الرقم المدنى او كلمة المرور');
         }
     }
 
