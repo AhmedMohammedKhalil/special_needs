@@ -12,7 +12,7 @@ class Login extends Component
     public $password;
 
     protected $rules = [
-        'email'   => 'required|email|exists:admins,email',
+        'email'   => 'required|email|exists:students,email',
         'password' => 'required|min:8'
     ];
 
